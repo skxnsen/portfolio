@@ -1,0 +1,38 @@
+  @media (max-width: 768px) {
+    .about-picture {
+      width: 250px;
+    }
+  }
+  
+  .about-picture {
+    border-radius: 15px; /* Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for animation */
+    width: 100%;
+    max-width: 450px; /* Maximum size */
+    max-height: 350px; /* Maximum size */
+    height: auto;
+    display: flex;
+    justify-content: center; /* Horizontally center the image */
+    align-items: center; /* Vertically center the image */
+    animation: pulseAnimation 15s ease-in-out infinite; /* Continuous animation */
+}
+
+.about-picture:hover {
+    transform: scale(1.1); /* Slightly zoom in */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Fancy shadow on hover */
+}
+
+@keyframes pulseAnimation {
+  0% {
+      transform: scale(1); /* Normal size */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+  50% {
+      transform: scale(1.1); /* Slight zoom in */
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+  }
+  100% {
+      transform: scale(1); /* Back to normal size */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+}

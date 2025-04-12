@@ -1,0 +1,19 @@
+User-agent: *
+
+# Disallow internal Angular routes (optional)
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+Disallow: /profile/
+Disallow: /dashboard/
+Disallow: /settings/
+
+# Disallow API and assets folders
+Disallow: /api/
+Disallow: /assets/
+
+# Allow everything else
+Allow: /
+
+# Sitemap (replace with your actual URL)
+Sitemap: https://yourdomain.com/sitemap.xml
