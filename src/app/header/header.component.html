@@ -1,37 +1,49 @@
 <div #stickyHeader class="tabs is-centered is-fullwidth" [class.sticky]="sticky">
-<div class="shadow-sm bg-dark">
-    <nav class="navbar navbar-expand-md">
+    <div class="shadow-sm bg-dark">
+      <nav class="navbar navbar-expand-md">
         <div class="container d-flex justify-content-between align-items-center">
-            <a class="navbar-brand text-light" href="/" target="_blank" class="a-green surname">_skxnsen</a>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a routerLink="/home" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-                        <span class="nav-number">01.</span> Home
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/about" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-                        <span class="nav-number">02.</span> About
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/skills" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-                        <span class="nav-number">03.</span> Skills
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/portfolio" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-                        <span class="nav-number">04.</span> Portfolio
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a routerLink="/contact" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-                        <span class="nav-number">05.</span> Contact
-                    </a>
-                </li>
-            </ul>
+  
+          <a class="navbar-brand text-light surname" href="/" target="_blank">_skxnsen</a>
+  
+          <div class="nav-links d-none d-md-flex">
+            <a routerLink="/home" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+              <span class="nav-number">01.</span> Home
+            </a>
+            <a routerLink="/about" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+              <span class="nav-number">02.</span> About
+            </a>
+            <a routerLink="/skills" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+              <span class="nav-number">03.</span> Skills
+            </a>
+            <a routerLink="/portfolio" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+              <span class="nav-number">04.</span> Portfolio
+            </a>
+            <a routerLink="/contact" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+              <span class="nav-number">05.</span> Contact
+            </a>
+          </div>
+  
+          <!-- Hamburger -->
+          <button mat-icon-button class="menu-button d-md-none" (click)="sidenav.toggle()">
+            <mat-icon>menu</mat-icon>
+          </button>
         </div>
-    </nav>
-</div>
-</div>
-<router-outlet></router-outlet>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- SideNav for mobile -->
+  <mat-sidenav-container class="sidenav-container d-md-none">
+    <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav">
+      <mat-nav-list class="mobile-nav">
+        <a mat-list-item routerLink="/home" (click)="sidenav.close()">01. Home</a>
+        <a mat-list-item routerLink="/about" (click)="sidenav.close()">02. About</a>
+        <a mat-list-item routerLink="/skills" (click)="sidenav.close()">03. Skills</a>
+        <a mat-list-item routerLink="/portfolio" (click)="sidenav.close()">04. Portfolio</a>
+        <a mat-list-item routerLink="/contact" (click)="sidenav.close()">05. Contact</a>
+      </mat-nav-list>
+    </mat-sidenav>
+  </mat-sidenav-container>
+  
+  <router-outlet></router-outlet>
+  
