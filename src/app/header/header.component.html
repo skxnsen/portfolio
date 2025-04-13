@@ -3,7 +3,11 @@
       <nav class="navbar navbar-expand-md">
         <div class="container d-flex justify-content-between align-items-center">
   
-          <a class="navbar-brand text-light surname" href="/" target="_blank">_skxnsen</a>
+          <a routerLink="/"
+            routerLinkActive="text-light"
+            class="navbar-brand nav-link text-light a-green surname">
+            _skxnsen
+          </a>
   
           <div class="nav-links d-none d-md-flex">
             <a routerLink="/home" routerLinkActive="text-light" class="nav-link text-secondary a-green">
@@ -32,9 +36,16 @@
     </div>
   </div>
   
-  <!-- SideNav for mobile -->
   <mat-sidenav-container class="sidenav-container d-md-none">
-    <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav">
+    <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav opened">
+      <!-- Close Button -->
+      <div class="sidenav-header" style="display: flex; justify-content: flex-end;">
+        <button mat-icon-button class="close-button" (click)="sidenav.close()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </div>
+  
+      <!-- Nav List -->
       <mat-nav-list class="mobile-nav">
         <a mat-list-item routerLink="/home" (click)="sidenav.close()">01. Home</a>
         <a mat-list-item routerLink="/about" (click)="sidenav.close()">02. About</a>
@@ -43,7 +54,7 @@
         <a mat-list-item routerLink="/contact" (click)="sidenav.close()">05. Contact</a>
       </mat-nav-list>
     </mat-sidenav>
-  </mat-sidenav-container>
+  </mat-sidenav-container>  
   
   <router-outlet></router-outlet>
   

@@ -81,6 +81,16 @@ header {
     right: 0;
     z-index: 1050; /* Ensure it's above content but below header */
   }
+
+  .sidenav-header {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .close-button {
+    color: #fff;
+    margin-bottom: 1rem;
+  }  
   
   .custom-sidenav {
     width: 250px;
@@ -130,4 +140,3 @@ header {
       display: block;
     }
   }
-  
