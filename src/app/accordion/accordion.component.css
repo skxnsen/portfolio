@@ -19,7 +19,7 @@
   .tech-cell {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: left;
     background-color: #27333f;
     border: 2px solid #00FF00;
     padding: 10px;
