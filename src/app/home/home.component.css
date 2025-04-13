@@ -1,14 +1,4 @@
-
-@media (max-width: 768px) {
-    .home-title, .home-author {
-        font-size: 50px !important;
-    }
-
-    .home-author {
-        line-height: 4rem !important;
-    }
-  }
-
+/* General styling */
 .text-left-container {
     display: flex;
     justify-content: center;
@@ -46,3 +36,38 @@
     50% { border-color: #00FF00; }
 }
 
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    .home-title, .home-author {
+        font-size: 50px !important;
+    }
+
+    .home-author {
+        line-height: 4rem !important;
+    }
+
+    /* Adjusting the layout */
+    .text-left {
+        margin: 20px; /* Reduced margin for smaller screens */
+        text-align: center; /* Center-align text for mobile */
+    }
+
+    .home-title {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        line-height: 3rem;
+    }
+
+    .home-author {
+        font-size: 2rem;
+    }
+
+    blockquote {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+
+    button a {
+        font-size: 1.2rem;
+    }
+}
