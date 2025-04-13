@@ -1,25 +1,40 @@
-  @media (max-width: 768px) {
-    .about-picture {
-      width: 250px;
-    }
-  }
-  
-  .about-picture {
-    border-radius: 15px; /* Rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for animation */
-    width: 100%;
-    max-width: 450px; /* Maximum size */
-    max-height: 350px; /* Maximum size */
-    height: auto;
-    display: flex;
-    justify-content: center; /* Horizontally center the image */
-    align-items: center; /* Vertically center the image */
-    animation: pulseAnimation 15s ease-in-out infinite; /* Continuous animation */
+  /* General Layout Adjustments */
+.default-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+}
+
+.content-left {
+  max-width: 800px;
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* About Image */
+.about-picture {
+  border-radius: 15px; /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for animation */
+  width: 100%;
+  max-width: 450px; /* Maximum size */
+  max-height: 350px; /* Maximum size */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  animation: pulseAnimation 15s ease-in-out infinite; /* Continuous animation */
 }
 
 .about-picture:hover {
-    transform: scale(1.1); /* Slightly zoom in */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Fancy shadow on hover */
+  transform: scale(1.1); /* Slightly zoom in */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Fancy shadow on hover */
 }
 
 @keyframes pulseAnimation {
@@ -34,5 +49,59 @@
   100% {
       transform: scale(1); /* Back to normal size */
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .default-container {
+    padding: 10px;
+  }
+
+  .content {
+    padding: 0;
+  }
+
+  .col-lg-8 {
+    width: 100%;
+  }
+
+  /* Adjust image sizes for smaller screens */
+  .about-picture {
+    max-width: 90%;
+    max-height: 250px;
+  }
+
+  /* Adjust text for smaller screens */
+  .default-topic {
+    font-size: 1.5rem;
+  }
+
+  .default-p {
+    font-size: 1rem;
+  }
+
+  button {
+    width: 100%;
+  }
+
+  .content-left {
+    padding: 15px;
+  }
+}
+
+/* Adjustments for very small devices (optional) */
+@media (max-width: 480px) {
+  .default-topic {
+    font-size: 1.25rem;
+  }
+
+  .default-p {
+    font-size: 0.9rem;
+  }
+
+  .about-picture {
+    max-width: 100%;
+    max-height: 200px;
   }
 }
