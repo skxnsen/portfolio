@@ -1,4 +1,4 @@
-/* General styling */
+/* General layout */
 .text-left-container {
     display: flex;
     justify-content: center;
@@ -11,24 +11,42 @@
     text-align: start;
 }
 
+/* Title */
 .home-title {
     font-size: 5rem;
     color: #e0f0ff;
     margin-bottom: 5rem;
-    line-height: 5rem;
+    line-height: 6rem;
 }
 
+/* Author block */
 .home-author {
     font-size: 3.5rem;
     color: #b0caf063;
     margin-bottom: 3rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    line-height: 4.5rem;
+    align-items: baseline;
+    word-break: break-word;
 }
 
+/* Static author name */
+.author-name {
+    white-space: nowrap;
+}
+
+/* Dynamic text */
 #dynamic-text {
+    display: inline-block;
     border-right: 2px solid #00FF00;
     padding-right: 5px;
     animation: blink-caret 0.7s step-end infinite;
     color: #00FF00;
+    max-width: 100%;
+    line-height: inherit;
+    word-break: break-word;
 }
 
 @keyframes blink-caret {
@@ -36,30 +54,19 @@
     50% { border-color: #00FF00; }
 }
 
-/* Media Queries for responsiveness */
+/* Responsive adjustments */
 @media (max-width: 768px) {
-    .home-title, .home-author {
-        font-size: 50px !important;
-    }
-
-    .home-author {
-        line-height: 4rem !important;
-    }
-
-    /* Adjusting the layout */
-    .text-left {
-        margin: 20px; /* Reduced margin for smaller screens */
-        text-align: center; /* Center-align text for mobile */
-    }
-
     .home-title {
         font-size: 3rem;
         margin-bottom: 2rem;
-        line-height: 3rem;
+        line-height: 3.5rem;
     }
 
     .home-author {
         font-size: 2rem;
+        line-height: 3rem;
+        justify-content: center;
+        text-align: center;
     }
 
     blockquote {
@@ -69,5 +76,41 @@
 
     button a {
         font-size: 1.2rem;
+    }
+
+    .text-left {
+        margin: 20px;
+        text-align: center;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+    .home-title {
+        font-size: 4rem;
+        margin-bottom: 4rem;
+        line-height: 5rem;
+    }
+
+    .home-author {
+        font-size: 2.5rem;
+        line-height: 4rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .home-title {
+        font-size: 5rem;
+    }
+
+    .home-author {
+        font-size: 3.5rem;
+    }
+
+    blockquote {
+        font-size: 1.7rem;
+    }
+
+    button a {
+        font-size: 1.5rem;
     }
 }
