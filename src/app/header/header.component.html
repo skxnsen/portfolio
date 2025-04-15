@@ -1,60 +1,71 @@
+<!-- Sticky Header -->
 <div #stickyHeader class="tabs is-centered is-fullwidth" [class.sticky]="sticky">
-    <div class="shadow-sm bg-dark">
-      <nav class="navbar navbar-expand-md">
-        <div class="container d-flex justify-content-between align-items-center">
-  
-          <a routerLink="/"
-            routerLinkActive="text-light"
-            class="navbar-brand nav-link text-light a-green surname">
-            _skxnsen
+  <div class="shadow-sm bg-dark">
+    <nav class="navbar navbar-expand-md">
+      <div class="container d-flex justify-content-between align-items-center">
+        <!-- Logo -->
+        <a routerLink="/" routerLinkActive="text-light" class="navbar-brand nav-link text-light a-green surname">
+          _skxnsen
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="nav-links d-none d-md-flex">
+          <a routerLink="/home" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+            <span class="nav-number">01.</span> Home
           </a>
-  
-          <div class="nav-links d-none d-md-flex">
-            <a routerLink="/home" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-              <span class="nav-number">01.</span> Home
-            </a>
-            <a routerLink="/about" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-              <span class="nav-number">02.</span> About
-            </a>
-            <a routerLink="/skills" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-              <span class="nav-number">03.</span> Skills
-            </a>
-            <a routerLink="/portfolio" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-              <span class="nav-number">04.</span> Portfolio
-            </a>
-            <a routerLink="/contact" routerLinkActive="text-light" class="nav-link text-secondary a-green">
-              <span class="nav-number">05.</span> Contact
-            </a>
-          </div>
-  
-          <!-- Hamburger -->
-          <button mat-icon-button class="menu-button d-md-none" (click)="sidenav.toggle()">
-            <mat-icon>menu</mat-icon>
-          </button>
+          <a routerLink="/about" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+            <span class="nav-number">02.</span> About
+          </a>
+          <a routerLink="/skills" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+            <span class="nav-number">03.</span> Skills
+          </a>
+          <a routerLink="/portfolio" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+            <span class="nav-number">04.</span> Portfolio
+          </a>
+          <a routerLink="/contact" routerLinkActive="text-light" class="nav-link text-secondary a-green">
+            <span class="nav-number">05.</span> Contact
+          </a>
         </div>
-      </nav>
-    </div>
-  </div>
-  
-  <mat-sidenav-container class="sidenav-container d-md-none">
-    <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav opened">
-      <!-- Close Button -->
-      <div class="sidenav-header" style="display: flex; justify-content: flex-end;">
-        <button mat-icon-button class="close-button" (click)="sidenav.close()">
-          <mat-icon>close</mat-icon>
+
+        <!-- Hamburger Menu -->
+        <button mat-icon-button class="menu-button d-md-none" (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
         </button>
       </div>
-  
-      <!-- Nav List -->
-      <mat-nav-list class="mobile-nav">
-        <a mat-list-item routerLink="/home" (click)="sidenav.close()">01. Home</a>
-        <a mat-list-item routerLink="/about" (click)="sidenav.close()">02. About</a>
-        <a mat-list-item routerLink="/skills" (click)="sidenav.close()">03. Skills</a>
-        <a mat-list-item routerLink="/portfolio" (click)="sidenav.close()">04. Portfolio</a>
-        <a mat-list-item routerLink="/contact" (click)="sidenav.close()">05. Contact</a>
-      </mat-nav-list>
-    </mat-sidenav>
-  </mat-sidenav-container>  
-  
-  <router-outlet></router-outlet>
-  
+    </nav>
+  </div>
+</div>
+
+<!-- Mobile Sidebar -->
+<mat-sidenav-container class="sidenav-container d-md-none">
+  <mat-sidenav #sidenav mode="over" position="end" class="custom-sidenav">
+    <!-- Close Button -->
+    <div class="sidenav-header">
+      <button mat-icon-button class="close-button" (click)="sidenav.close()">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+    <!-- Mobile Nav -->
+    <mat-nav-list class="mobile-nav">
+      <a routerLink="/home" (click)="sidenav.close()" class="nav-link text-secondary a-green">
+        <span class="nav-number">01.</span> Home
+      </a>
+      <a routerLink="/about" (click)="sidenav.close()" class="nav-link text-secondary a-green">
+        <span class="nav-number">02.</span> About
+      </a>
+      <a routerLink="/skills" (click)="sidenav.close()" class="nav-link text-secondary a-green">
+        <span class="nav-number">03.</span> Skills
+      </a>
+      <a routerLink="/portfolio" (click)="sidenav.close()" class="nav-link text-secondary a-green">
+        <span class="nav-number">04.</span> Portfolio
+      </a>
+      <a routerLink="/contact" (click)="sidenav.close()" class="nav-link text-secondary a-green">
+        <span class="nav-number">05.</span> Contact
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+</mat-sidenav-container>
+
+<!-- Router outlet -->
+<router-outlet></router-outlet>
