@@ -1,21 +1,23 @@
 /* Add margin to the top of the container */
 .align-items-center {
-  margin-top: 40px; /* Adjust this value as needed */
+  margin-top: 0px;
 }
 
 /* Contact card styles */
 .contact-card {
   max-width: 700px;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: #27333f;
   border: 2px solid #b0caf063;
-  padding: 70px 20px 20px 20px; /* Adjusted padding to ensure space at the top */
+  padding: 70px 20px 20px 20px;
   border-radius: 8px;
   color: white;
   text-align: center;
+  box-sizing: border-box;
 }
 
 /* Contact title styles */
@@ -41,6 +43,7 @@ h1 {
   height: 250px;
   border-radius: 50%;
   margin-bottom: 1rem;
+  object-fit: cover;
 }
 
 /* Contact paragraph styles */
@@ -95,8 +98,10 @@ h1 {
 
 .media-icons {
   display: flex;
-  justify-content: space-around;
-  width: 35%;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
 }
 
 .media-icon {
@@ -105,7 +110,6 @@ h1 {
 
 .media-icons a {
   color: #adb5bd;
-  margin-left: 10px;
   position: relative;
   text-decoration: none;
 }
@@ -139,13 +143,85 @@ h1 {
   font-size: 35px;
 }
 
-/* Adjust for smaller screens */
+/* Tablet screens */
+@media (max-width: 1024px) {
+  .contact-title {
+    font-size: 2.5rem;
+  }
+
+  .contact-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .contact-paragraph {
+    font-size: 1.1rem;
+  }
+
+  .contact-button {
+    font-size: 0.95rem;
+    padding: 8px 16px;
+  }
+
+  .media-icon {
+    font-size: 1.8rem;
+  }
+}
+
+/* Mobile screens */
 @media (max-width: 768px) {
   .align-items-center {
-      margin-top: 20px; /* Smaller top margin on mobile */
+    margin-top: 80px; /* Adjust for sticky header */
   }
 
   .contact-title {
-      font-size: 32px !important;
+    font-size: 2rem !important;
+  }
+
+  .contact-image {
+    width: 150px;
+    height: 150px;
+  }
+
+  .contact-paragraph {
+    font-size: 1rem;
+    padding: 0 10px;
+  }
+
+  .contact-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .media-icons {
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .fab,
+  .fas {
+    font-size: 28px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .contact-title {
+    font-size: 1.75rem !important;
+  }
+
+  .contact-paragraph {
+    font-size: 0.95rem;
+  }
+
+  .contact-button {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+
+  .contact-image {
+    width: 120px;
+    height: 120px;
   }
 }

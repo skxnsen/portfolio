@@ -1,42 +1,279 @@
-.accordion-left{
-    max-width: 820px;
+/* Base Styles */
+.tag {
+  padding: 0 20px;
+  height: 30px;
+  width: fit-content;
+  font-size: 14px;
+  line-height: 30px;
+  border-radius: 25px;
+  background-color: #5a7581;
+  color: white;
+  margin-top: 10px;
 }
 
-.accordion-text{
-    font-size: 1rem;
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+/* Link hover underline effect */
+.a-green {
+  color: #adb5bd;
+  position: relative;
+  text-decoration: none;
+}
+.a-green::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #00FF00;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.a-green:hover::after {
+  width: 100%;
+  left: 0;
+}
+.a-green:hover,
+.a-green:active {
+  color: #f8f9fa;
+}
+
+/* Buttons */
+button,
+.button-small {
+  background-color: transparent;
+  border: 2px solid #00FF00;
+  border-radius: 8px;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+button {
+  padding: 20px;
+  font-size: 1.25rem;
+}
+.button-small {
+  padding: 10px 5px;
+  width: 145px;
+  font-size: 1rem;
+}
+button:hover {
+  transform: translateY(-7px);
+}
+
+/* Containers and Typography */
+.default-container {
+  background: #141a20;
+  padding: 40px 20px;
+  min-height: 94vh;
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: left;
+}
+
+.default-title {
+  font-size: 4rem;
+  color: #e0f0ff;
+  margin-bottom: 3rem;
+  line-height: 4.5rem;
+}
+
+.default-subtitle {
+  font-size: 2.5rem;
+  color: #00ff00;
+  margin-bottom: 2rem;
+}
+
+.default-topic {
+  font-size: 2rem;
+  color: #ffffff;
+  margin-bottom: 2rem;
+}
+
+.default-subtopic {
+  font-size: 1.5rem;
+  color: #00ff00;
+  margin-bottom: 2rem;
+}
+
+blockquote {
+  font-size: 1.2rem;
+  color: #8c98a3;
+  line-height: 1.8rem;
+  margin-bottom: 2rem;
+}
+
+.default-p {
+  max-width: 820px;
+  font-size: 1rem;
+  color: #8c98a3;
+  line-height: 2rem;
+  margin-bottom: 2rem;
+}
+
+.default-highlight {
+  color: #00ff00;
+}
+
+/* Cards & Panels */
+.card.customClass {
+  color: #ffffff;
+}
+.card.customClass .card-header {
+  background-color: #27333f;
+}
+.panel.customClass {
+  background-color: #141a20;
+}
+
+/* Accordion buttons */
+.accordion-title .btn {
+  text-decoration: none;
+  color: #8c98a3;
+  font-weight: bold;
+  font-size: 1.5rem;
+  position: relative;
+}
+.accordion-title .btn:hover,
+.accordion-title .btn:active {
+  color: #f8f9fa;
+}
+.accordion-title .btn::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  display: block;
+  margin-top: 5px;
+  right: 0;
+  background: #00FF00;
+  transition: width 0.3s ease, background-color 0.3s ease;
+}
+.accordion-title .btn:hover::after {
+  width: 100%;
+  left: 0;
+  background: #00FF00;
+}
+
+/* Accordion content styling */
+.accordion-left {
+  max-width: 820px;
+  text-align: left; /* Ensure left alignment */
+}
+
+.accordion-text {
+  font-size: 1rem;
+  text-align: left; /* Ensure text is left-aligned */
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+/* Tech Board Layout */
 .tech-board {
-    display: grid;
-    max-width: 820px;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 10px;
-    background-color: #141a20;
-    padding: 20px;
-    border-radius: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  display: grid;
+  grid-gap: 20px;
+  background-color: #141a20;
+  padding: 20px;
+  border-radius: 8px;
+  overflow: hidden; /* Prevent overflow outside the grid */
+  width: 100%; /* Ensure the board doesn't exceed the container width */
+  box-sizing: border-box; /* Include padding/borders in total width */
+  flex-shrink: 1;
+}
+
+.tech-cell {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  background-color: #27333f;
+  border: 2px solid #00FF00;
+  padding: 1rem;
+  margin: 1rem;
+  border-radius: 8px;
+  color: white;
+  font-size: 1.5rem;
+  width: 100%; /* Allow cell to adjust based on available space */
+  box-sizing: border-box;
+  min-width: 150px; /* Prevent shrinking too much */
+}
+
+/* Ensure icons have natural size */
+.tech-cell img {
+  width: 200px; /* Natural icon size */
+  height: 200px;
+  margin-bottom: 0.5rem; /* Space between icon and text */
+}
+
+@media (max-width: 576px) {
+  .tech-board {
+    grid-template-columns: 1fr; /* 1 column on mobile */
   }
-  
+
   .tech-cell {
-    display: flex;
-    justify-content: center;
-    align-items: left;
-    background-color: #27333f;
-    border: 2px solid #00FF00;
-    padding: 10px;
-    margin: 20px 30px;
-    border-radius: 8px;
-    color: white;
-    font-size: 6rem;
+    font-size: 1.125rem; /* Adjust font size for mobile */
+    flex-direction: column; /* Stack the icon and text vertically */
+    text-align: center; /* Center align text when stacked */
+    min-width: 150px; /* Ensure minimum width */
+    max-width: none; /* Allow it to expand freely */
   }
-  
+
   .tech-cell img {
-    max-width: 50px;
-    max-height: 50px;
+    width: 70px; /* Larger icons on small screens */
+    height: 70px;
+    margin-bottom: 1rem; /* Space between icon and text when stacked */
   }
-  
-  @media (max-width: 768px) {
-    .tech-board {
-      grid-template-columns: repeat(1, 1fr);
-    }
+}
+
+@media (max-width: 576px) {
+  .default-title {
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
-  
+  .default-subtitle,
+  .default-topic,
+  .default-subtopic {
+    font-size: 1.25rem;
+  }
+  .default-p,
+  blockquote {
+    font-size: 0.9rem;
+  }
+  .button-small {
+    width: 100%;
+    padding: 8px;
+  }
+  .tag {
+    font-size: 12px;
+    padding: 0 12px;
+    height: auto;
+    line-height: 22px;
+  }
+}
+
+/* Viewport-wide adjustments for mobile-first approach */
+@media (max-width: 768px) {
+  .default-container {
+    padding: 20px 10px;
+    text-align: center;
+  }
+  .tech-cell {
+    font-size: 1rem; /* Smaller text size on mobile */
+    padding: 1rem;
+    min-width: 100px;
+    text-align: center;
+  }
+  .tech-cell img {
+    width: 50px; /* Icon size for mobile */
+    height: 50px;
+  }
+}
