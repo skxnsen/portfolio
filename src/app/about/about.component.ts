@@ -10,7 +10,7 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
   templateUrl: './about.component.html',
   styleUrls: [
     './about.component.css',
-    '/src/styles.css'
+    '../../styles.css'
   ]
 })
 export class AboutComponent {

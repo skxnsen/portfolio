@@ -11,7 +11,7 @@ import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: [
     './home.component.css',
-    '/src/styles.css'
+    '../../styles.css'
   ]
 })
 

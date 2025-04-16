@@ -10,7 +10,7 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
   templateUrl: './modal.component.html',
   styleUrls: 
   ['./modal.component.css',
-  '/src/styles.css',
+  '../../styles.css',
   ]
 })
 export class ModalComponent {

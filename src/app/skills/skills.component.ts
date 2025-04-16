@@ -9,7 +9,7 @@ import { AccordionComponent } from '../accordion/accordion.component';
   templateUrl: './skills.component.html',
   styleUrls: [
     './skills.component.css',
-    '/src/styles.css'
+    '../../styles.css'
   ]
 })
 export class SkillsComponent {

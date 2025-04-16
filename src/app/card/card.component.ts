@@ -10,7 +10,7 @@ import { ModalComponent } from '../modal/modal.component';
   templateUrl: './card.component.html',
   styleUrls: [
     './card.component.css',
-    '/src/styles.css'
+    '../../styles.css'
   ],
   providers: [BsModalService],
 })
