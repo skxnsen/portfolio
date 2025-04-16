@@ -1,0 +1,23 @@
+/* Parent container of the button */
+.cd-back-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;            
+  }
+  
+  /* The button itself */
+  .cd-back-btn {
+    padding: 0.5rem 1rem;
+    font-family: monospace;
+    font-size: 1rem;
+    background-color: #1e1e1e;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .cd-back-btn:hover {
+    background-color: #2e2e2e;
+  }

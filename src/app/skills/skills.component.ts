@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AccordionComponent } from '../accordion/accordion.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+import { CdBackComponent } from '../shared/cd-back/cd-back.component';
 
 interface Alert {
   type: string;
@@ -22,7 +23,7 @@ const ALERTS: Alert[] = [
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [AccordionComponent, NgbAlertModule],
+  imports: [AccordionComponent, NgbAlertModule, CdBackComponent],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css', '../../styles.css']
 })

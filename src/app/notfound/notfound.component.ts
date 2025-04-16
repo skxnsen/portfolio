@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { CdBackComponent } from '../shared/cd-back/cd-back.component';
 
 @Component({
   selector: 'app-notfound',
   standalone: true,
-  imports: [],
+  imports: [CdBackComponent],
   templateUrl: './notfound.component.html',
   styleUrl: './notfound.component.css'
 })
