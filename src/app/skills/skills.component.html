@@ -1,5 +1,8 @@
 <div class="align-items-center default-container">
     <div class="col-lg-8">
+        @for (alert of alerts; track alert) {
+            <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+        }
         <div class="content">
             <div class="content-left">
                 <h2 class="default-topic" id="skills-heading">Skills</h2>
