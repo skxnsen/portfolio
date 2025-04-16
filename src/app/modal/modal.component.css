@@ -30,3 +30,7 @@ img {
     position: relative;
     text-decoration: none;
 }
+
+.btn-close {
+    filter: invert(1); /* Makes the × white */
+  }
