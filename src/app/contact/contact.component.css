@@ -1,7 +1,4 @@
 /* Add margin to the top of the container */
-.align-items-center {
-  margin-top: 0px;
-}
 
 /* Contact card styles */
 .contact-card {
@@ -170,10 +167,6 @@ h1 {
 
 /* Mobile screens */
 @media (max-width: 768px) {
-  .align-items-center {
-    margin-top: 80px; /* Adjust for sticky header */
-  }
-
   .contact-title {
     font-size: 2rem !important;
   }

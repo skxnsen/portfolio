@@ -15,8 +15,20 @@ html, body {
   height: 100%;
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #141a20;
 }
 
+.wrapper { 
+  min-height: 100%; 
+  height: auto !important; 
+  height: 100%; 
+  margin: 0 auto -40px;
+  background-color: #141a20;
+ }
+
+.footer-wrap {
+  margin-top: auto;
+}
 /* Link hover underline effect */
 .a-green {
   color: #adb5bd;
@@ -69,10 +81,10 @@ button:hover {
 /* Containers and Typography */
 .default-container {
   background: #141a20;
-  padding: 40px 20px;
-  min-height: 94vh;
+  padding: 60px;
   overflow-y: auto;
   display: flex;
+  flex: 1;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -218,7 +230,8 @@ blockquote {
 /* Viewport-wide adjustments for mobile-first approach */
 @media (max-width: 768px) {
   .default-container {
-      padding: 20px 10px;
+      padding: 40px;
+      padding-top: 60px;
       text-align: center;
   }
   .default-title {

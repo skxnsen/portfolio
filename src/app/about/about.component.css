@@ -9,14 +9,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10px;
 }
 
 .content-left {
   max-width: 800px;
   width: 100%;
-  padding: 20px;
   box-sizing: border-box;
+  text-align: left;
 }
 
 /* About Image */
@@ -54,13 +53,6 @@
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .default-container {
-    padding: 10px;
-  }
-
-  .content {
-    padding: 0;
-  }
 
   .col-lg-8 {
     width: 100%;
@@ -85,9 +77,6 @@
     width: 100%;
   }
 
-  .content-left {
-    padding: 15px;
-  }
 }
 
 /* Adjustments for very small devices (optional) */

@@ -2,77 +2,26 @@
 .default-container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 20px; /* Base padding */
+  align-items: center;
 }
 
 .content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  padding: 10px;
+  align-items: center;
 }
 
 .content-left {
   max-width: 800px;
   width: 100%;
-  padding: 20px;
   box-sizing: border-box;
-  text-align: left; /* Ensure text is left-aligned */
-}
-
-/* About Image */
-.about-picture {
-  border-radius: 15px; /* Rounded corners */
-  align-items: flex-start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for animation */
-  width: 100%;
-  max-width: 450px; /* Maximum size */
-  max-height: 350px; /* Maximum size */
-  height: auto;
-  display: block;
-  margin: 0 auto;
-  animation: pulseAnimation 15s ease-in-out infinite; /* Continuous animation */
-}
-
-.about-picture:hover {
-  transform: scale(1.1); /* Slightly zoom in */
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Fancy shadow on hover */
-}
-
-@keyframes pulseAnimation {
-  0% {
-      transform: scale(1); /* Normal size */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  }
-  50% {
-      transform: scale(1.1); /* Slight zoom in */
-      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* More prominent shadow */
-  }
-  100% {
-      transform: scale(1); /* Back to normal size */
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-  }
+  text-align: left;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .default-container {
-    padding: 10px; /* Reduced padding for mobile */
-  }
-
-  .content {
-    padding: 0; /* No extra padding on content */
-  }
-
   .col-lg-8 {
     width: 100%; /* Ensure it takes full width on smaller screens */
-  }
-
-  /* Adjust image sizes for smaller screens */
-  .about-picture {
-    max-width: 90%;
-    max-height: 250px; /* Reduced height for mobile */
   }
 
   /* Adjust text for smaller screens */
@@ -89,7 +38,6 @@
   }
 
   .content-left {
-    padding: 15px; /* Reduced padding for mobile */
     text-align: left; /* Ensure content is left-aligned */
   }
 }
@@ -103,9 +51,5 @@
   .default-p {
     font-size: 0.9rem; /* Smaller paragraph font */
   }
-
-  .about-picture {
-    max-width: 100%; /* Full width for very small devices */
-    max-height: 200px; /* Reduced max-height for smaller devices */
-  }
+  
 }
