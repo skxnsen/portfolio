@@ -7,11 +7,10 @@ import { ContactComponent } from './contact/contact.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 
 export const routes: Routes = [
-    { path: 'home', component: HomeComponent },
+    { path: '', component: HomeComponent }, // avoid netlify conflicts
     { path: 'about', component: AboutComponent },
     { path: 'skills', component: SkillsComponent },
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'contact', component: ContactComponent },
-    { path: '', component: HomeComponent},
     { path: '**', component: NotfoundComponent }
 ];
