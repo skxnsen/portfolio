@@ -94,3 +94,60 @@
     max-height: 200px;
   }
 }
+
+/* Terminal style for whoami */
+.terminal-intro {
+  color: #00ff00;
+  font-size: 1rem;
+  padding: 1rem;
+  background-color: #141a20;
+  white-space: pre;
+}
+
+.prompt {
+  color: #00ff00;
+}
+
+.command {
+  border-right: 2px solid #00ff00;
+  animation: typing 1.5s steps(7, end) forwards, blink-caret 0.75s step-end infinite;
+  overflow: hidden;
+}
+
+.result {
+  margin-top: 0.5rem;
+  animation: fadeIn 2s ease 1.6s forwards;
+  opacity: 0;
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 7ch; }
+}
+
+@keyframes blink-caret {
+  50% {
+    border-color: transparent;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.user {
+  color: #00dd00;
+}
+
+.host {
+  color: #00aa00;
+}
+
+/* Date Styling */
+.date {
+  color: #888;
+  font-size: 0.8rem;
+  display: block;
+}
