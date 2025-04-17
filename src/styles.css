@@ -11,11 +11,38 @@
   margin-top: 10px;
 }
 
+/* Forcefully override Angular Material component fonts */
+
+body,
+button,
+input,
+textarea,
+.mat-typography,
+.mat-body-1,
+.mat-body-2,
+.mat-button,
+.mat-card,
+.mat-input-element {
+  font-family: "Space Mono", monospace !important;
+}
+
 html, body {
   height: 100%;
   margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-family: "Space Mono", monospace;
   background-color: #141a20;
+}
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
 }
 
 .wrapper { 
