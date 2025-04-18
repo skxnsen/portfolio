@@ -4,11 +4,12 @@ import { CardComponent } from '../card/card.component';
 import { Card } from '../_models/card';
 import { Tag } from '../_models/tags';
 import { CdBackComponent } from '../shared/cd-back/cd-back.component';
+import { PageUpButtonComponent } from '../shared/page-up-button/page-up-button.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CardComponent, CdBackComponent],
+  imports: [CardComponent, CdBackComponent, PageUpButtonComponent],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
   providers: []
