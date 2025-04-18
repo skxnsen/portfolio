@@ -40,10 +40,10 @@
 /* Dynamic text */
 #dynamic-text {
     display: inline-block;
-    border-right: 2px solid #00FF00;
+    border-right: 2px solid #43aa85;
     padding-right: 5px;
     animation: blink-caret 0.7s step-end infinite;
-    color: #00FF00;
+    color: #43aa85;
     max-width: 100%;
     line-height: inherit;
     word-break: break-word;
@@ -51,7 +51,7 @@
 
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: #00FF00; }
+    50% { border-color: #43aa85; }
 }
 
 /* Responsive adjustments */

@@ -62,8 +62,8 @@ h1 {
 
 .contact-button {
   background-color: transparent;
-  border: 2px solid #00FF00;
-  color: #00FF00;
+  border: 2px solid #43aa85;
+  color: #43aa85;
   padding: 10px 20px;
   border-radius: 8px;
   font-size: 1rem;
@@ -76,12 +76,12 @@ h1 {
 }
 
 .contact-button a {
-  color: #00FF00;
+  color: #43aa85;
   text-decoration: none;
 }
 
 .contact-button a:hover {
-  color: #00FF00;
+  color: #43aa85;
 }
 
 /* Media icons styles */
@@ -119,14 +119,14 @@ h1 {
   display: block;
   margin-top: 5px;
   right: 0;
-  background: #00FF00;
+  background: #43aa85;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
 
 .media-icons a:hover::after {
   width: 100%;
   left: 0;
-  background: #00FF00;
+  background: #43aa85;
 }
 
 .media-icons a:hover,

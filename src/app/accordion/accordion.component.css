@@ -31,7 +31,7 @@ html, body {
   display: block;
   margin-top: 5px;
   right: 0;
-  background: #00FF00;
+  background: #43aa85;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
 .a-green:hover::after {
@@ -47,7 +47,7 @@ html, body {
 button,
 .button-small {
   background-color: transparent;
-  border: 2px solid #00FF00;
+  border: 2px solid #43aa85;
   border-radius: 8px;
   color: white;
   font-weight: bold;
@@ -88,7 +88,7 @@ button:hover {
 
 .default-subtitle {
   font-size: 2.5rem;
-  color: #00ff00;
+  color: #43aa85;
   margin-bottom: 2rem;
 }
 
@@ -100,7 +100,7 @@ button:hover {
 
 .default-subtopic {
   font-size: 1.5rem;
-  color: #00ff00;
+  color: #43aa85;
   margin-bottom: 2rem;
 }
 
@@ -120,7 +120,7 @@ blockquote {
 }
 
 .default-highlight {
-  color: #00ff00;
+  color: #43aa85;
 }
 
 /* Cards & Panels */
@@ -154,13 +154,13 @@ blockquote {
   display: block;
   margin-top: 5px;
   right: 0;
-  background: #00FF00;
+  background: #43aa85;
   transition: width 0.3s ease, background-color 0.3s ease;
 }
 .accordion-title .btn:hover::after {
   width: 100%;
   left: 0;
-  background: #00FF00;
+  background: #43aa85;
 }
 
 /* Accordion content styling */
@@ -196,7 +196,7 @@ blockquote {
   justify-content: center; /* Center the content horizontally */
   align-items: center; /* Center the content vertically */
   background-color: #27333f;
-  border: 2px solid #00FF00;
+  border: 2px solid #43aa85;
   padding: 1rem;
   margin: 1rem;
   border-radius: 8px;
