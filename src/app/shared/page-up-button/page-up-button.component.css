@@ -1,7 +1,7 @@
 .page-up-button {
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    bottom: 4rem;
+    right: 1.5rem;
     background-color: #27333f;
     color: white;
     border: none;

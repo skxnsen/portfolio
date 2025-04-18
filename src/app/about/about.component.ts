@@ -3,12 +3,11 @@ import { Title } from '@angular/platform-browser';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
 import { CdBackComponent } from '../shared/cd-back/cd-back.component';
 import { PageUpButtonComponent } from '../shared/page-up-button/page-up-button.component';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [RouterLinkActive, RouterOutlet, RouterLink, CdBackComponent, PageUpButtonComponent, CommonModule],
+  imports: [RouterLinkActive, RouterOutlet, RouterLink, CdBackComponent, PageUpButtonComponent],
   templateUrl: './about.component.html',
   styleUrls: [
     './about.component.css',

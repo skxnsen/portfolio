@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { AccordionComponent } from '../accordion/accordion.component';
 import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
 import { CdBackComponent } from '../shared/cd-back/cd-back.component';
+import { PageUpButtonComponent } from '../shared/page-up-button/page-up-button.component';
 
 interface Alert {
   type: string;
@@ -23,7 +24,7 @@ const ALERTS: Alert[] = [
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [AccordionComponent, NgbAlertModule, CdBackComponent],
+  imports: [AccordionComponent, NgbAlertModule, CdBackComponent, PageUpButtonComponent],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css', '../../styles.css']
 })

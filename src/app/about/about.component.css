@@ -97,7 +97,7 @@
 
 /* Terminal style for whoami */
 .terminal-intro {
-  color: #43aa85;
+  color: #00dd00;
   font-size: 1rem;
   padding: 1rem;
   background-color: #141a20;
@@ -105,11 +105,11 @@
 }
 
 .prompt {
-  color: #43aa85;
+  color: #00dd00;
 }
 
 .command {
-  border-right: 2px solid #43aa85;
+  border-right: 2px solid #00dd00;
   animation: typing 1.5s steps(7, end) forwards, blink-caret 0.75s step-end infinite;
   overflow: hidden;
 }

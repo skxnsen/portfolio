@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { RouterLinkActive, RouterOutlet, RouterLink } from '@angular/router';
+import { PageUpButtonComponent } from '../shared/page-up-button/page-up-button.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
   imports: [
-    RouterLink,
+    RouterLink, PageUpButtonComponent
   ],
   templateUrl: './home.component.html',
   styleUrls: [
