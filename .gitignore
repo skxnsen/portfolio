@@ -45,6 +45,7 @@ testem.log
 Thumbs.db
 
 # Playwright
-/tests/reports/
 .local-browsers/
 *.env
+tests/reports/
+playwright-report

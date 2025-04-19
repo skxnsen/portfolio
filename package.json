@@ -1,7 +1,7 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "author": "skxnsen",
+  "version": "1.2.0",
+  "author": "skansen",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -34,13 +34,17 @@
     "@angular-devkit/build-angular": "^19.2.6",
     "@angular/cli": "^19.2.6",
     "@angular/compiler-cli": "^19.2.6",
+    "@playwright/test": "^1.52.0",
     "@types/jasmine": "~5.1.0",
+    "jasmine": "^5.6.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "playwright": "^1.52.0",
+    "ts-node": "^10.9.2",
     "typescript": "~5.8.3"
   }
 }
