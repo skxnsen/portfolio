@@ -40,7 +40,9 @@ jobs:
 
       # Step 7: Run Playwright tests (starts server via webServer config)
       - name: Run Playwright tests
-        run: npx playwright test tests
+        run: |
+            sleep 10 # Wait for 10 seconds
+            npx playwright test tests
         env:
           BASE_URL: http://127.0.0.1:4200 # Default to local, update as needed for CI
 
