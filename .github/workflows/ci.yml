@@ -30,7 +30,7 @@ jobs:
           npm install playwright
           npx playwright install --with-deps
         env:
-          BASE_URL: http://10.1.0.111:4200
+          BASE_URL: http://10.1.0.111:4200  # CI environment variable
 
       # Step 5: Build Angular app
       - name: Build Angular app
@@ -39,13 +39,16 @@ jobs:
       # Step 6: Serve Angular app in the background
       - name: Serve Angular app in background
         run: |
-          npx http-server ./dist/portfolio -p 4200 &
+          npx http-server ./dist/angular-portfolio-app -p 4200 &
         env:
           CI: true
 
       # Step 7: Run Playwright tests
       - name: Run Playwright tests
-        run: npx playwright test tests --reporter=html
+        run: |
+          npx playwright test tests --reporter=html
+        env:
+          BASE_URL: ${{ secrets.BASE_URL || 'http://127.0.0.1:4200' }}  # Use CI BASE_URL if available, otherwise default to localhost
 
       # Step 8: Upload test reports
       - name: Upload Playwright test reports
