@@ -15,7 +15,7 @@ export default defineConfig({
     baseURL: process.env['BASE_URL'] || 'http://127.0.0.1:4200',
   },
   webServer: {
-    command: 'npx http-server ./dist/angular-portfolio-app -p 4200',
+    command: 'http-server ./dist/angular-portfolio-app -p 4200',
     url: process.env['BASE_URL'] || 'http://127.0.0.1:4200',
     reuseExistingServer: !process.env['CI'],
   },
