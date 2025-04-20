@@ -9,7 +9,7 @@ jobs:
   deploy-and-test:
     runs-on: ubuntu-latest
     steps:
-    
+
       # Step 1: Checkout code
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -24,38 +24,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # Step 4: Install Playwright and dependencies
+      # Step 4: Install Angular CLI (if needed)
+      - name: Install Angular CLI
+        run: npm install -g @angular/cli
+
+      # Step 5: Install Playwright and dependencies
       - name: Install Playwright
         run: |
           npm install playwright
           npx playwright install --with-deps
-        env:
-          BASE_URL: http://10.1.0.111:4200  # CI environment variable
 
-      # Step 5: Build Angular app
+      # Step 6: Build Angular app
       - name: Build Angular app
-        run: npm run build
+        run: npm run build -- --output-path=dist/angular-portfolio-app
 
-      # Step 6: Serve Angular app in the background
-      - name: Serve Angular app in background
-        run: |
-          npx http-server ./dist/angular-portfolio-app -p 4200 &
-        env:
-          CI: true
-
-      # Step 7: Run Playwright tests
+      # Step 7: Run Playwright tests (starts server via config)
       - name: Run Playwright tests
-        run: |
-          npx playwright test tests --reporter=html
+        run: npx playwright test tests
         env:
-          BASE_URL: ${{ secrets.BASE_URL || 'http://127.0.0.1:4200' }}  # Use CI BASE_URL if available, otherwise default to localhost
+          BASE_URL: http://10.1.0.111:4200
 
-      # Step 8: Upload test reports
+      # Step 8: Upload Playwright test reports
       - name: Upload Playwright test reports
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: playwright-report/
+          path: tests/reports/
           retention-days: 30
 
       # Step 9: Trigger Netlify deployment if tests pass
