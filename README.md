@@ -8,15 +8,15 @@ A modern Angular application portfolio built with [Angular CLI](https://angular.
 
 Make sure you have the following installed:
 
-- [Node.js](https://nodejs.org/) (v16 or later)
+- [Node.js](https://nodejs.org/) (LTS)
 - npm (comes with Node.js) or [Yarn](https://yarnpkg.com/)
 
 ### Installation
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/angular-app.git
-cd angular-app
+git clone https://github.com/skxnsen/portfolio.git
+cd portfolio
 
 # Install dependencies
 npm install
@@ -24,7 +24,7 @@ npm install
 yarn install
 ```
 
-### Run the App
+### Run the dev server
 
 ```bash
 # Start the development server
@@ -36,24 +36,12 @@ Then open [http://localhost:4200](http://localhost:4200) in your browser.
 ## 🧪 Testing
 
 ```bash
-# Run unit tests
-ng test
-
-# Run end-to-end tests
-ng e2e
-
 # Playwright CLI
-Playwright test tests
+npx playwright test tests # Headless mode by default
+npx playwright test tests --ui # UI mode
 ```
 
-## 🛠️ Build
-
-```bash
-# Build for production
-ng build
-```
-
-## 📁 Project Structure
+## 📁 Project Core Structure
 
 ```
 angular-app/
@@ -68,11 +56,11 @@ angular-app/
 
 ## ✅ TODO
 
-- [ ] Responsive navigation component for mobile viewports
+- [✅] Responsive navigation component for mobile viewports
 - [ ] Setup environment variables handling  
 - [ ] Implement lazy loading for feature modules  
 - [ ] Improve unit test coverage
-- [ ] Improve UI test coverage with Playwright NodeJS
+- [✅] Improve UI test coverage with Playwright NodeJS
 - [ ] Add CI/CD GitHub Actions pipeline
 - [ ] Dockerize the application  
 - [ ] Add documentation for components & services
