@@ -1,61 +1,52 @@
-name: Playwright and Netlify Deployment
+name: CI Pipeline
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  deploy-and-test:
+  test-and-deploy:
     runs-on: ubuntu-latest
     steps:
-
-      # Step 1: Checkout code
-      - name: Checkout repository
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Node.js
-      - name: Set up Node.js
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 'lts/*'
+          node-version: '20.x'
+          cache: 'npm'
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm ci
 
-      # Step 4: Install Angular CLI (if needed)
-      - name: Install Angular CLI
-        run: npm install -g @angular/cli
-
-      # Step 5: Install Playwright and dependencies
-      - name: Install Playwright
-        run: |
-          npm install playwright
-          npx playwright install --with-deps
-
-      # Step 6: Build Angular app
       - name: Build Angular app
         run: npm run build -- --output-path=dist/angular-portfolio-app
 
-      # Step 7: Run Playwright tests (starts server via webServer config)
-      - name: Run Playwright tests
-        run: |
-            sleep 10 # Wait for 10 seconds
-            npx playwright test tests
-        env:
-          BASE_URL: http://127.0.0.1:4200 # Default to local, update as needed for CI
+      - name: Verify build output
+        run: ls -la dist/angular-portfolio-app
 
-      # Step 8: Upload Playwright test reports
-      - name: Upload Playwright test reports
+      - name: Install Playwright
+        run: |
+          npx playwright install --with-deps
+          npx playwright install-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test tests
+        env:
+          CI: true
+
+      - name: Upload test report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
-          path: tests/reports/
-          retention-days: 30
+          path: playwright-report/
+          retention-days: 7
 
-      # Step 9: Trigger Netlify deployment if tests pass
-      - name: Trigger Netlify deployment
+      - name: Deploy to Netlify
         if: success()
         run: |
           curl -X POST -d {} ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
