@@ -51,4 +51,4 @@ jobs:
       - name: Deploy to Netlify
         if: success()
         run: |
-          curl -X POST -d {} ${{ secrets.NETLIFY_DEPLOY_HOOK_URL }}
+          curl -X POST -d {} ${{ secrets.NETLIFY_HOOK_URL }}
