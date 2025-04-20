@@ -12,8 +12,7 @@ export default defineConfig({
   workers: process.env['CI'] ? 1 : undefined,
   reporter: [['html', { outputFolder: 'tests/reports', open: 'never' }]],
   use: {
-    baseURL: process.env['BASE_URL'] || 'http://127.0.0.1:4200', // Use env variable if provided, otherwise default to 127.0.0.1
-    trace: 'on-first-retry',
+    baseURL: process.env['BASE_URL'] || 'http://localhost:4200',
   },
   projects: [
     {
