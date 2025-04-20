@@ -26,7 +26,7 @@ jobs:
 
       # Step 4: Build Angular app
       - name: Build Angular app
-        run: npm run build -- --configuration production
+        run: npm run build
 
       # Step 5: Serve Angular app in the background
       - name: Serve Angular app in background
@@ -35,18 +35,11 @@ jobs:
         env:
           CI: true
 
-      # Step 6: Wait for Angular app to be up
-      - name: Wait for app to be served
-        run: |
-          for i in {1..20}; do
-            curl -sSf http://127.0.0.1:4200 && break || curl -sSf http://10.1.0.106:4200 && break || sleep 5
-          done
-
-      # Step 7: Run Playwright tests
+      # Step 6: Run Playwright tests
       - name: Run Playwright tests
         run: npx playwright test tests --reporter=html
 
-      # Step 8: Upload test reports
+      # Step 7: Upload test reports
       - name: Upload Playwright test reports
         uses: actions/upload-artifact@v4
         with:
@@ -54,7 +47,7 @@ jobs:
           path: playwright-report/
           retention-days: 30
 
-      # Step 9: Trigger Netlify deployment if tests pass
+      # Step 8: Trigger Netlify deployment if tests pass
       - name: Trigger Netlify deployment
         if: success()
         run: |

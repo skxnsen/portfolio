@@ -4,7 +4,7 @@ export default defineConfig({
   testDir: './tests',
   timeout: 30 * 1000,
   expect: {
-    timeout: 5000
+    timeout: 5000,
   },
   fullyParallel: true,
   forbidOnly: !!process.env['CI'],
@@ -12,7 +12,7 @@ export default defineConfig({
   workers: process.env['CI'] ? 1 : undefined,
   reporter: [['html', { outputFolder: 'tests/reports', open: 'never' }]],
   use: {
-    baseURL: 'http://localhost:4200',
+    baseURL: process.env['BASE_URL'] || 'http://127.0.0.1:4200', // Use env variable if provided, otherwise default to 127.0.0.1
     trace: 'on-first-retry',
   },
   projects: [
