@@ -1,5 +1,7 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/8cfb0876-28da-414f-93e6-9c66de1f0aed/deploy-status)](https://app.netlify.com/sites/skansen/deploys)
 
+[![Playwright and Netlify Deployment](https://github.com/skxnsen/portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/skxnsen/portfolio/actions/workflows/ci.yml)
+
 # Angular App
 
 A modern Angular application portfolio built with [Angular CLI](https://angular.io/cli).
