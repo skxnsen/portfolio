@@ -38,11 +38,11 @@ jobs:
       - name: Build Angular app
         run: npm run build -- --output-path=dist/angular-portfolio-app
 
-      # Step 7: Run Playwright tests (starts server via config)
+      # Step 7: Run Playwright tests (starts server via webServer config)
       - name: Run Playwright tests
         run: npx playwright test tests
         env:
-          BASE_URL: http://10.1.0.111:4200
+          BASE_URL: http://127.0.0.1:4200 # Default to local, update as needed for CI
 
       # Step 8: Upload Playwright test reports
       - name: Upload Playwright test reports

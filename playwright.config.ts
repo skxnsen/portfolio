@@ -15,9 +15,10 @@ export default defineConfig({
     baseURL: process.env['BASE_URL'] || 'http://127.0.0.1:4200',
   },
   webServer: {
-    command: 'http-server ./dist/angular-portfolio-app -p 4200',
+    command: 'npx http-server ./dist/angular-portfolio-app -p 4200',
     url: process.env['BASE_URL'] || 'http://127.0.0.1:4200',
     reuseExistingServer: !process.env['CI'],
+    timeout: 60 * 1000, // 👈 prevents timeout error
   },
   projects: [
     {
