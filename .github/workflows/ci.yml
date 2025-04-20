@@ -31,11 +31,14 @@ jobs:
 
       # Build the Angular app
       - name: Build Angular app
-        run: npm run build -- --prod
+        run: npm run build
 
       # Serve the built Angular app locally
-      - name: Start local server
-        run: npx http-server ./dist/portfolio -p 4200 --ext html &
+      - name: Serve Angular app in background
+        run: |
+          npx http-server ./dist/portfolio -p 4200 &
+        env:
+          CI: true    
 
       # Get the local IP address dynamically (this is usually 127.0.0.1 in most CI environments)
       - name: Get local server IP address

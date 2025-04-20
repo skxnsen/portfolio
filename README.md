@@ -58,11 +58,11 @@ angular-app/
 
 ## ✅ TODO
 
-- [✅] Responsive navigation component for mobile viewports
+- [X] Responsive navigation component for mobile viewports
 - [ ] Setup environment variables handling  
 - [ ] Implement lazy loading for feature modules  
 - [ ] Improve unit test coverage
-- [✅] Improve UI test coverage with Playwright NodeJS
+- [X] Improve UI test coverage with Playwright NodeJS
 - [ ] Add CI/CD GitHub Actions pipeline
 - [ ] Dockerize the application  
 - [ ] Add documentation for components & services
