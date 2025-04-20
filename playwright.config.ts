@@ -14,7 +14,7 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npx http-server ./dist/angular-portfolio-app -p 4200',
+    command: 'npx http-server ./dist/angular-portfolio-app/browser -p 4200',
     url: 'http://localhost:4200',
     reuseExistingServer: !process.env.CI,
     timeout: 120 * 1000,

@@ -26,7 +26,9 @@ jobs:
         run: npm run build -- --output-path=dist/angular-portfolio-app
 
       - name: Verify build output
-        run: ls -la dist/angular-portfolio-app
+        run: |
+            ls -la dist/angular-portfolio-app
+            ls -la dist/angular-portfolio-app/browser
 
       - name: Install Playwright
         run: |
