@@ -9,9 +9,14 @@ on:
 jobs:
   test-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Needed to push reports to the repo
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Required to get git history for proper branch handling
+          persist-credentials: true  # Required to push changes back
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -27,8 +32,8 @@ jobs:
 
       - name: Verify build output
         run: |
-            ls -la dist/angular-portfolio-app
-            ls -la dist/angular-portfolio-app/browser
+          ls -la dist/angular-portfolio-app
+          ls -la dist/angular-portfolio-app/browser
 
       - name: Install Playwright
         run: |
@@ -40,13 +45,38 @@ jobs:
         env:
           CI: true
 
-      - name: Upload test report
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: playwright-report
-          path: playwright-report/
-          retention-days: 7
+      - name: Upload and manage test reports in repo
+        if: always()  # Upload even if previous steps failed
+        run: |
+          # Configure git user
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+
+          # Create report directory with timestamp and run ID
+          REPORT_DIR="ci_reports/$(date +%Y%m%d_%H%M%S)_${{ github.run_id }}"
+          mkdir -p $REPORT_DIR
+          cp -r playwright-report/* $REPORT_DIR/
+
+          # Remove oldest reports if more than 5
+          cd ci_reports
+          # List directories sorted by creation time (newest first)
+          directories=$(ls -td */ 2>/dev/null | sed 's#/##g')
+          if [ -n "$directories" ]; then
+            # Count directories and delete if more than 5
+            count=$(echo "$directories" | wc -l)
+            if [ $count -gt 5 ]; then
+              to_delete=$(echo "$directories" | tail -n +6)
+              echo "Removing old reports: $to_delete"
+              rm -rf $to_delete
+            fi
+          fi
+
+          # Commit and push changes
+          git add .
+          git commit -m "CI: Update test reports $(date +'%Y-%m-%d %H:%M:%S')"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Automatic token with repo access
 
       - name: Deploy to Netlify
         if: success()
