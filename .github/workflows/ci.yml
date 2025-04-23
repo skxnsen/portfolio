@@ -9,6 +9,9 @@ on:
 jobs:
   test-and-deploy:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        workers: [4]  # Optional: Test different worker counts
     permissions:
       contents: write  # Needed to push reports to the repo
     steps:
@@ -41,7 +44,7 @@ jobs:
           npx playwright install-deps
 
       - name: Run Playwright tests
-        run: npx playwright test tests
+        run: npx playwright test --workers=4 tests
         env:
           CI: true
 
