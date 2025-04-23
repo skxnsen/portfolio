@@ -14,11 +14,12 @@ export default defineConfig({
     trace: 'on-first-retry',
   },
   webServer: {
-    command: 'npx http-server ./dist/angular-portfolio-app/browser -p 4200 --single',
+    command: 'npx serve -s ./dist/angular-portfolio-app/browser -l 4200',
     url: 'http://localhost:4200',
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
-    stderr: 'pipe',
+    timeout: 180 * 1000, // 3 minutes
+    stdout: 'pipe',
+    stderr: 'pipe'
   },
   projects: [
     {
