@@ -18,7 +18,7 @@ export class ContactPage {
   }
 
   async navigateToContact() {
-    await this.page.goto('./contact');
+    await this.page.goto('/contact');
   }
 
   async clickLinkedInButton() {

@@ -57,6 +57,13 @@ jobs:
           mkdir -p $REPORT_DIR
           cp -r playwright-report/* $REPORT_DIR/
 
+          # Zip the trace files (data/trace directory or trace.zip)
+          if [ -d "playwright-report/data/trace" ]; then
+            zip -r $REPORT_DIR/trace.zip playwright-report/data/trace
+          elif [ -f "playwright-report/trace.zip" ]; then
+            cp playwright-report/trace.zip $REPORT_DIR/
+          fi
+
           # Remove oldest reports if more than 5
           cd ci_reports
           # List directories sorted by creation time (newest first)
