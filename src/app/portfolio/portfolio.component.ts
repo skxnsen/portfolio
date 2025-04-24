@@ -5,16 +5,42 @@ import { Card } from '../_models/card';
 import { Tag } from '../_models/tags';
 import { CdBackComponent } from '../shared/cd-back/cd-back.component';
 import { PageUpButtonComponent } from '../shared/page-up-button/page-up-button.component';
+import { NgbAlertModule } from '@ng-bootstrap/ng-bootstrap';
+
+interface Alert {
+  type: string;
+  message: string;
+}
+
+const ALERTS: Alert[] = [
+  { type: 'success', message: 'Currently developing this page 🔨🚧' },
+  // { type: 'info', message: 'This is an info alert' },
+  // { type: 'warning', message: 'This is a warning alert' },
+  // { type: 'danger', message: 'This is a danger alert' },
+  // { type: 'primary', message: 'This is a primary alert' },
+  // { type: 'secondary', message: 'This is a secondary alert' },
+  // { type: 'light', message: 'This is a light alert' },
+  // { type: 'dark', message: 'This is a dark alert' },
+];
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CardComponent, CdBackComponent, PageUpButtonComponent],
+  imports: [CardComponent, CdBackComponent, PageUpButtonComponent, NgbAlertModule],
   templateUrl: './portfolio.component.html',
   styleUrl: './portfolio.component.css',
   providers: []
 })
 export class PortfolioComponent {
+  alerts!: Alert[];
+
+  reset() {
+    this.alerts = ALERTS.map(alert => ({ ...alert }));
+  }
+
+  close(alert: Alert) {
+    this.alerts.splice(this.alerts.indexOf(alert), 1);
+  }
 
   projects: Card[] = [
     {
@@ -74,9 +100,12 @@ export class PortfolioComponent {
 
   ]
 
-
   constructor(private titleService: Title) {
     this.titleService.setTitle('MS Portfolio | Projects 📁')
+  }
+
+  ngOnInit(): void {
+    this.reset();
   }
 
   trackById(index: number, project: Card): number {

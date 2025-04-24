@@ -1,6 +1,9 @@
 <div class="align-items-center default-container">
     <div class="content col-lg-8">
         <div class="row">
+            @for (alert of alerts; track alert) {
+                <ngb-alert [type]="alert.type" (closed)="close(alert)">{{ alert.message }}</ngb-alert>
+            }
             @for(project of projects; track project.id) {
                 <div class="col-lg-4 col-md-6 mb-4" style="max-width: 390px; min-width: 390px">
                     <app-project-card [card]="project"></app-project-card>
