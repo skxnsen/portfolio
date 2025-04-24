@@ -33,6 +33,9 @@ export class SkillsComponent {
 
   constructor(private titleService: Title) {
     this.titleService.setTitle('MS Portfolio | Skills 🔭');
+  }
+
+  ngOnInit(): void {
     this.reset();
   }
 
