@@ -104,10 +104,11 @@ header {
     position: fixed; /* Keep it fixed on top */
     top: 0;
     right: 0;
-    height: 50%; /* Ensure the sidebar takes up the full height */
+    height: 55%;
     transform: translateX(100%); /* Initially hidden */
     transition: transform 0.3s ease-in-out; /* Smooth transition */
-    z-index: 1060; /* Ensure it's above the content */
+    z-index: 1060;
+    touch-action: pan-y;
   }
   
   .custom-sidenav.mat-sidenav.opened {
