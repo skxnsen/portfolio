@@ -1,6 +1,6 @@
-# JMeter CLI Commands for SDET
+# jMeter CLI commands
 
-This page summarizes the most commonly used JMeter command-line options, structured for easy usage in automation and testing tasks.
+The most commonly used JMeter command-line options, structured for easy usage in automation and testing tasks.
 
 ---
 
@@ -144,3 +144,9 @@ jmeter -n -t test_plan.jmx -Jproperty.name=value
 > - Always prefer `-n` mode for automated or CI/CD test runs.
 > - Combine `-f` and `-o` for clean report generation.
 > - Properties can be passed dynamically via `-J`, `-G`, or `-D` switches for better flexibility.
+
+---
+
+### 📖 Resources:
+* [jMeter Documentation](https://jmeter.apache.org/usermanual/index.html)
+* [jMeter CLI](https://jmeter.apache.org/usermanual/get-started.html#non_gui)
