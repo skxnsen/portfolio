@@ -1,4 +1,4 @@
-# Grep Commands for Log Analysis and RCA
+# grep command
 
 When investigating bugs, crashes, or unexpected behavior, **analyzing logs** becomes crucial.  
 The `grep` command is one of the most powerful and essential tools in Linux for this purpose.
