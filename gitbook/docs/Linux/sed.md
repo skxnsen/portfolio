@@ -1,123 +1,66 @@
 # sed command
 
-`sed` (Stream Editor) can **quickly clean, extract, or manipulate** logs.
+`sed` (Stream Editor) can **quickly filter, clean, and write** logs for QA purposes.
 
-`sed` reads from stdin (standard input) line-by-line.
+`sed` reads from stdin (standard input) line-by-line, making it powerful for live streaming logs (e.g., `tail -f`, `adb logcat`, etc.).
 
-If your logs are streaming (like from `tail -f`, `adb logcat`, `nc` or output logs from protocol like FIX, etc),
-you can pipe that into `sed` to filter/modify the stream live.
+---
+
+## 🔹 Basic Syntax
+
+```bash
+sed [options] 'command' [file...]
+```
+
+- **`[options]`** — flags to control `sed` behavior.
+- **`'command'`** — what transformation to apply.
+- **`[file...]`** — input file(s) or piped input.
 
 ---
 
 ## 🔥 Essential `sed` commands
 
-### 1. Remove Timestamps
-
-```bash
-sed 's/^[0-9\-:. ,]\{18,30\}//'
-```
-- Removes date/time prefixes to **focus only on log content**.
-
----
-
-### 2. Filter Specific Patterns (Extract)
-
-```bash
-sed -n '/Exception/p'
-```
-- Extract only lines containing "Exception" (or any error keyword).
+| Command / Syntax                                | Description                                                  |
+|:-------------------------------------------------|:-------------------------------------------------------------|
+| `sed -n '/pattern/p' file.log`                   | **Filter**: Print lines matching a pattern                   |
+| `sed '/pattern/d' file.log`                      | **Delete**: Remove lines matching a pattern                  |
+| `sed '/pattern/!d' file.log`                     | **Inverse filter**: Keep only lines matching a pattern       |
+| `sed 's/old/new/g' file.log`                     | **Replace**: Global replacement of text                      |
+| `sed -r 's/([0-9]{4})-([0-9]{2})/\2-\1/' file.log` | **Regex Replace**: Use extended regex                        |
+| `sed '/pattern/w output.txt' file.log`           | **Write**: Write matching lines to another file              |
+| `sed '/pattern/r extra.txt' file.log`            | **Read**: Insert contents from a file after matched line     |
+| `sed -e 'command1' -e 'command2' file.log`        | Combine multiple sed commands                                |
 
 ---
 
-### 3. Delete Noise / Verbose Logs
+## 🔹 Very Quick Real-World Examples (Viewing, Not Editing)
 
-```bash
-sed '/DEBUG\|INFO\|ViewRootImpl\|Choreographer/d'
-```
-- **Clean logs** by removing less critical messages live.
-
----
-
-### 4. Mask Sensitive Information
-
-```bash
-sed 's/[a-zA-Z0-9._%+-]\+@[a-zA-Z0-9.-]\+\.[a-zA-Z]\{2,6\}/[email]/g'
-```
-- Replace emails in logs to **share them safely** for analysis.
+| Goal                                | Command Example                                      |
+|:------------------------------------|:-----------------------------------------------------|
+| Show only error lines               | `sed -n '/ERROR/p' logfile.log`                      |
+| Show lines after a crash            | `sed -n '/FATAL EXCEPTION/,$p' logfile.log`           |
+| Exclude debug lines                 | `sed '/DEBUG/d' logfile.log`                         |
+| Normalize "error" case              | `sed 's/[eE][rR][rR][oO][rR]/ERROR/g' logfile.log`    |
+| Remove empty lines                  | `sed '/^[[:space:]]*$/d' logfile.log`                 |
+| View readable FIX messages          | `tail -f fix.log \| sed 's/\x01/\n/g'`                 |
+| Highlight "Exception" with marker   | `sed '/Exception/i ===========' logfile.log`         |
+| Print blocks between two patterns   | `sed -n '/BEGIN TRACE/,/END TRACE/p' logfile.log`     |
+| Keep only lines with both "error" and "timeout" | `sed -n '/error/Ip' logfile.log \| sed -n '/timeout/Ip'` |
 
 ---
 
-### 5. Insert Separators Before Key Events
+## 🔹 Piping `sed` with other tools
 
-```bash
-sed '/FATAL EXCEPTION/i ========================='
-```
-- **Visually separate** critical events inside a single logfile.
+| Tool + `sed` Example                     | Description                                |
+|:-----------------------------------------|:-------------------------------------------|
+| `adb logcat \| sed -n '/Exception/p'`      | Filter live Android logs for exceptions    |
+| `tail -f server.log \| sed '/DEBUG/d'`     | Remove noisy debug lines while tailing     |
+| `nc localhost 5000 \| sed -n '/CRITICAL/p'`| Filter TCP streamed logs for "CRITICAL"    |
+| `cat file.log \| sed -n '/error/p' \| grep timeout` | Double filter using sed + grep          |
 
----
-
-### 6. Normalize Log Level Formats
-
-```bash
-sed 's/\([eE][rR][rR][oO][rR]\)/ERROR/g'
-```
-- Normalize inconsistent log levels for easier searching.
 
 ---
 
-### 7. Format FIX/Protocol Data (Optional)
+> 📌 **Note:** In RCA/log viewing, `sed` is typically used with `-n` and `p` commands to **extract**, **highlight**, and **format**, but **not modify** files.
 
-```bash
-sed 's/\x01/\n/g'
-```
-- Replace ASCII SOH (`\x01`) characters with newlines to **read FIX messages** easily.
-
----
-
-### 8. Delete Continuation Lines or Junk
-
-```bash
-sed '/^[[:space:]]*$/d'
-```
-- Remove **empty or whitespace-only** lines.
-
----
-
-## 🚀 Using `sed` Live
-
-When streaming logs:
-
-```bash
-adb logcat | sed '/DEBUG/d' | sed 's/^[0-9\-:. ,]\{18,30\}//' | sed -n '/Exception/p'
-```
-- Clean live Android logs in real-time.
-- Focus only on exceptions.
-
----
-
-## 📋 Summary Table
-
-| Goal                          | `sed` Command Example                            |
-|:------------------------------|:-------------------------------------------------|
-| Remove timestamps             | `sed 's/^[0-9\-:. ,]\{18,30\}//'`                 |
-| Extract "Exception" lines     | `sed -n '/Exception/p'`                          |
-| Delete noisy logs             | `sed '/DEBUG\|INFO/d'`                           |
-| Mask sensitive data           | `sed 's/[a-zA-Z0-9._%+-]\+@[a-zA-Z0-9.-]\+\.[a-zA-Z]\{2,6\}/[email]/g'` |
-| Insert separators             | `sed '/FATAL EXCEPTION/i ========================='` |
-| Normalize case                | `sed 's/\([eE][rR][rR][oO][rR]\)/ERROR/g'`        |
-| Format FIX messages           | `sed 's/\x01/\n/g'`                              |
-| Remove empty lines            | `sed '/^[[:space:]]*$/d'`                        |
-
----
-
-> 🧠 **Note:**  
-> Always prefer to run `sed` without `-i` during investigations. 
-> Stream output into a safe file or through `less`, `grep`, etc.
-
----
-
-# 📌 Focus First on Actions That:
-- Simplify reading the crash/error.
-- Remove noise.
-- Mask or sanitize sensitive info.
-- Highlight key patterns.
+> 🧠 **Tip:** Always prefer to run `sed` without `-i` during investigations. Stream output into a safe file or view in terminal.
