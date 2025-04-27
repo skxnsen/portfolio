@@ -1,3 +1,7 @@
+---
+icon: terminal
+---
+
 # awk command
 
 When basic text searching isn't enough, `awk` comes in — a **powerful text-processing tool** that can **filter, transform, and format** log data easily.

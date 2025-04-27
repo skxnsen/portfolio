@@ -1,5 +1,5 @@
 ---
-icon: hands
+icon: flask-vial
 ---
 
 # Manual Testing

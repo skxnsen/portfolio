@@ -20,3 +20,8 @@
 * [API Testing](api.md)
 * [Security Testing](security.md)
 * [Manual Testing](manual.md)
+* [Programming](programming/README.md)
+  * [Python](programming/python.md)
+  * [TypeScript](programming/typescript.md)
+  * [Java](programming/java.md)
+* [Misc](misc.md)

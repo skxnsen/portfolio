@@ -1,3 +1,7 @@
+---
+icon: terminal
+---
+
 # grep command
 
 When investigating bugs, crashes, or unexpected behavior, **analyzing logs** becomes crucial.\
