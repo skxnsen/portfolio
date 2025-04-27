@@ -14,21 +14,18 @@
 * `'command'` — what transformation to apply.
 * `[file...]` — input file(s) or piped input.
 
-## 🔥 Essential Operations
-
 ## Common Options
 
-| Option | Description                                      | Example                                    |
-| ------ | ------------------------------------------------ | ------------------------------------------ |
-| `-i`   | In-place editing                                 | `sed -i s/old/new/ file.txt`               |
-| `-n`   | Suppress automatic printing                      | `sed -n /pattern/p file.txt`               |
-| `-e`   | Execute multiple commands                        | `sed -e s/old/new/ -e /pattern/d file.txt` |
-| `-f`   | Read commands from a file                        | `sed -f script.sed file.txt`               |
-| `-r`   | Use extended regular expressions                 | `sed -r s/old/new/ file.txt`               |
-| `-E`   | Use extended regular expressions (similar to -r) | `sed -E s/old/new/ file.txt`               |
-| `-z`   | Separate lines with NUL character                | `sed -z s/old/new/ file.txt`               |
-| `-l`   | Specify the line length for the 'l' command      | `sed -l 100 l file.txt`                    |
-| `-b`   | Binary mode (do not strip the CR characters)     | `sed -b s/old/new/ file.txt`               |
+<table><thead><tr><th width="67.88885498046875">Option</th><th width="393.2222900390625">Example</th><th width="322.44439697265625">Description</th></tr></thead><tbody><tr><td><code>-i</code></td><td><pre class="language-bash"><code class="lang-bash">sed -i s/old/new/ file.txt
+</code></pre></td><td>In-place editing</td></tr><tr><td><code>-n</code></td><td><pre class="language-bash"><code class="lang-bash">sed -n /pattern/p file.txt
+</code></pre></td><td>Suppress automatic printing</td></tr><tr><td><code>-e</code></td><td><pre class="language-bash"><code class="lang-bash">sed -e s/old/new/ -e /pattern/d file.txt
+</code></pre></td><td>Execute multiple commands</td></tr><tr><td><code>-f</code></td><td><pre class="language-bash"><code class="lang-bash">sed -f script.sed file.txt
+</code></pre></td><td>Read commands from a file</td></tr><tr><td><code>-r</code></td><td><pre class="language-bash"><code class="lang-bash">sed -r s/old/new/ file.txt
+</code></pre></td><td>Use extended regular expressions</td></tr><tr><td><code>-E</code></td><td><pre class="language-bash"><code class="lang-bash">sed -E s/old/new/ file.txt
+</code></pre></td><td>Use extended regular expressions (similar to -r)</td></tr><tr><td><code>-z</code></td><td><pre class="language-bash"><code class="lang-bash">sed -z s/old/new/ file.txt
+</code></pre></td><td>Separate lines with NUL character</td></tr><tr><td><code>-l</code></td><td><pre class="language-bash"><code class="lang-bash">sed -l 100 l file.txt
+</code></pre></td><td>Specify the line length for the 'l' command</td></tr><tr><td><code>-b</code></td><td><pre class="language-bash"><code class="lang-bash">sed -b s/old/new/ file.txt
+</code></pre></td><td>Binary mode (do not strip the CR characters)</td></tr></tbody></table>
 
 ***
 
@@ -99,55 +96,6 @@ sed '/critical error/q' large.log
 ```bash
 grep "pattern" large.log | sed 's/.../.../'
 ```
-
-## Integration with Shell Scripts
-
-The `sed` command is commonly used in shell scripts to automate repetitive text manipulation tasks.
-
-Example with Real-Time FIX Protocol Parser with sed:
-
-```bash
-#!/bin/bash
-# Monitor and extract critical FIX messages from trading gateway logs
-
-tail -F /opt/trading/gateway/logs/fix_engine.log | \
-grep --line-buffered '8=FIX.4.4' | \
-sed -u -nE '
-    # 1. Extract basic message info
-    /35=[0-9]/ {
-        s/.*35=([0-9]+).*/\1/; h
-        s/.*/MsgType: \1/; p
-    }
-
-    # 2. Capture order-related messages (D=0, F=5, 8=8)
-    /35=[DF8]/ {
-        s/.*11=([^|]+).*/OrderID: \1/p
-        s/.*55=([^|]+).*/Symbol: \1/p
-        s/.*44=([^|]+).*/Price: \1/p
-        s/.*38=([^|]+).*/Qty: \1/p
-    }
-
-    # 3. Flag errors
-    /35=3/ {
-        s/.*58=([^|]+).*/ERROR: \1/p
-        s/.*371=([^|]+).*/ErrorCode: \1/p
-    }
-
-    # 4. Session heartbeat
-    /35=0/ {
-        s/.*/HEARTBEAT/p
-    }
-'
-```
-
-What This Solves in Production:
-
-1. Real-time monitoring of FIX traffic (tail -F)
-2. Message type filtering (only processes complete FIX messages)
-3. Key field extraction from different message types:
-   * New Orders (35=D): ClOrdID, Symbol, Price, Quantity
-   * Execution Reports (35=8): OrderID, LastPx, LastQty
-   * Rejects (35=3): Error text and code
 
 ## sed vs Alternatives
 
