@@ -16,7 +16,7 @@
 
 ## Common Options
 
-<table><thead><tr><th width="67.88885498046875">Option</th><th width="393.2222900390625">Example</th><th width="322.44439697265625">Description</th></tr></thead><tbody><tr><td><code>-i</code></td><td><pre class="language-bash"><code class="lang-bash">sed -i s/old/new/ file.txt
+<table data-full-width="true"><thead><tr><th width="83.33331298828125">Option</th><th width="482.5555419921875">Example</th><th>Description</th></tr></thead><tbody><tr><td><code>-i</code></td><td><pre class="language-bash"><code class="lang-bash">sed -i s/old/new/ file.txt
 </code></pre></td><td>In-place editing</td></tr><tr><td><code>-n</code></td><td><pre class="language-bash"><code class="lang-bash">sed -n /pattern/p file.txt
 </code></pre></td><td>Suppress automatic printing</td></tr><tr><td><code>-e</code></td><td><pre class="language-bash"><code class="lang-bash">sed -e s/old/new/ -e /pattern/d file.txt
 </code></pre></td><td>Execute multiple commands</td></tr><tr><td><code>-f</code></td><td><pre class="language-bash"><code class="lang-bash">sed -f script.sed file.txt
