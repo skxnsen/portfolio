@@ -5,36 +5,6 @@ The `grep` command is one of the most powerful and essential tools in Linux for 
 
 ***
 
-## Table of Contents
-
-* [Introduction](grep.md#introduction)
-* [Basic Syntax](grep.md#basic-syntax)
-* [Most Useful `grep` Commands](grep.md#most-useful-grep-commands)
-  * [1. Find a Specific Keyword](grep.md#1-find-a-specific-keyword)
-  * [2. Case-Insensitive Search](grep.md#2-case-insensitive-search)
-  * [3. Recursive Search](grep.md#3-recursive-search)
-  * [4. Show Line Numbers](grep.md#4-show-line-numbers)
-  * [5. Show Lines Before/After/Context](grep.md#5-show-lines-beforeaftercontext)
-  * [6. Multiple Keywords (OR Search)](grep.md#6-multiple-keywords-or-search)
-  * [7. Invert Match](grep.md#7-invert-match)
-  * [8. Count Occurrences](grep.md#8-count-occurrences)
-  * [9. Search Whole Words](grep.md#9-search-whole-words)
-  * [10. Live Log Monitoring](grep.md#10-live-log-monitoring)
-* [Save Results to a File](grep.md#save-results-to-a-file)
-* [Piping with `grep`](grep.md#piping-with-grep)
-* [Real-World RCA Examples](grep.md#real-world-rca-examples)
-* [Quick Tips](grep.md#quick-tips)
-* [Conclusion](grep.md#conclusion)
-
-***
-
-## Introduction
-
-For any SDET engineer working with logs, mastering `grep` can drastically speed up logs analyzing (e.g., working with Android Logcat logs, reverse engineering, RCA etc).\
-Instead of scrolling endlessly through massive log files, you can **pinpoint issues in seconds**.
-
-***
-
 ## Basic Syntax
 
 ```
@@ -42,6 +12,62 @@ grep [options] pattern [file...]
 ```
 
 ***
+
+## Option Examples
+
+<table><thead><tr><th width="92.33331298828125" align="center">Option</th><th align="center">Example</th><th>Description</th></tr></thead><tbody><tr><td align="center"><code>-i</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -i "data" demo.txt
+</code></pre></td><td>Ignore case sensitivity.</td></tr><tr><td align="center"><code>-w</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -w "of" demo.txt
+</code></pre></td><td>Search for the full word only.</td></tr><tr><td align="center"><code>-A</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -A 3 "Exception" error.log
+</code></pre></td><td>Show 3 lines after the match.</td></tr><tr><td align="center"><code>-B</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -B 4 "Exception" error.log
+</code></pre></td><td>Show 4 lines before the match.</td></tr><tr><td align="center"><code>-C</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -C 5 "Exception" error.log
+</code></pre></td><td>Show 5 lines around the match.</td></tr><tr><td align="center"><code>-r</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -r "error" /var/log/
+</code></pre></td><td>Recursive search in subdirectories.</td></tr><tr><td align="center"><code>-v</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -v "warning" syslog.log
+</code></pre></td><td>Show lines that do not match.</td></tr><tr><td align="center"><code>-e</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -e "^start" filename.txt
+</code></pre></td><td>Use regex (basic regular expressions).</td></tr><tr><td align="center"><code>-E</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">"ja(s|cks)on" filename.txt
+</code></pre></td><td>Use extended regex.</td></tr><tr><td align="center"><code>-c</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -c "error" syslog.log
+</code></pre></td><td>Count the number of matches.</td></tr><tr><td align="center"><code>-l</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -l "robot" /var/log/*
+</code></pre></td><td>Print filenames of matches.</td></tr><tr><td align="center"><code>-o</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -o "text" filename.txt
+</code></pre></td><td>Only show the matching part.</td></tr><tr><td align="center"><code>-n</code></td><td align="center"><pre class="language-bash"><code class="lang-bash">grep -n "go" demo.txt
+</code></pre></td><td>Show line numbers of matches.</td></tr></tbody></table>
+
+***
+
+## grep Regular Expressions
+
+#### Wildcards
+
+* `.` Any single character
+* `?` Optional, occurs once
+* `*` Optional, occurs multiple times
+* `+` Required, occurs multiple times
+
+#### Quantifiers
+
+* `{n}` Exactly n times
+* `{n,}` At least n times
+* `{,m}` Up to m times
+* `{n,m}` Between n and m times
+
+#### POSIX Character Classes
+
+* `[:alpha:]` Any letter (a-zA-Z)
+* `[:digit:]` Any digit (0-9)
+* `[:alnum:]` Any letter or digit
+* `[:space:]` Any whitespace
+
+#### Character Ranges
+
+* `[A-Za-z]` Any letter
+* `[0-9]` Any digit
+* `[0-9A-Za-z]` Any letter or digit
+
+#### Positions
+
+* `^` Beginning of line
+* `$` End of line
+* `^$` Empty line
+* `\<` Start of word
+* `\>` End of word
 
 ## Most Useful `grep` Commands
 
@@ -241,14 +267,6 @@ ls -l /var/log | grep "nginx"
 
 ***
 
-### Why Use Piping?
-
-* **Efficiency**: No need to save intermediate results to a file.
-* **Speed**: Instantly filter outputs without extra steps.
-* **Flexibility**: Combine with other commands like `awk`, `sed`, `sort`, etc.
-
-***
-
 ### Quick Tip: Grep Output Colors
 
 You can enable **colored output** when using `grep` with pipes:
@@ -258,30 +276,6 @@ ps aux | grep --color=always "ssh"
 ```
 
 > Highlight matching text for better visibility.
-
-***
-
-## Real-World RCA Examples
-
-| Scenario                   | Command Example                      |
-| -------------------------- | ------------------------------------ |
-| Investigating login issues | `grep -i "login" app.log`            |
-| Backend timeouts           | `grep -i "timeout" backend.log`      |
-| Network disconnections     | \`grep -E "disconnect                |
-| Memory crashes (OOM)       | `grep -i "out of memory" kernel.log` |
-
-***
-
-## Quick Tips
-
-* Use `-i` to avoid missing case variations.
-*   Combine `grep` with `less` for easier scrolling:
-
-    ```
-    grep "error" app.log | less
-    ```
-* Learn `grep`'s **regex mode** with `-E` for more complex patterns.
-* Save common commands into **bash aliases** for quicker usage.
 
 ***
 
