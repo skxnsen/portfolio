@@ -281,6 +281,12 @@ ps aux | grep --color=always "ssh"
 
 > Highlight matching text for better visibility.
 
+## Resources for Practicing
+
+{% embed url="https://exercism.org/tracks/bash/exercises/grep" %}
+
+{% embed url="https://www.hackerrank.com/domains/shell?filters%5Bsubdomains%5D%5B%5D=grep-sed-awk" %}
+
 ***
 
 ## grep Cheatsheet
