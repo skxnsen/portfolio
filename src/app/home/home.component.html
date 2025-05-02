@@ -1,18 +1,16 @@
 <div class="align-items-center default-container">
   <div class="col-12 col-md-8 col-lg-8">
-    <div class="text-left">
-      <h1 class="home-title">Tested. Trusted. Delivered.</h1>
-      <h2 class="home-author">
-        <span class="author-name">Mykhail,</span>
-        <span id="dynamic-text">{{ dynamicText }}</span>
+    <div class="text-left landing-header">
+      <h1 class="home-title">Hello,</h1>
+      <h2 class="home-subtitle">
+        My name is <span class="animated-name">Mykhail</span>
       </h2>
-      <blockquote>
-          I am a software test engineer with 2+ years of experience ensuring the quality and reliability of software products.
-      </blockquote>
+      <h3 class="home-dynamic-line">
+        I'm a <span id="dynamic-text">{{ dynamicText }}</span>
+      </h3>
+
       <button>
-          <a routerLink="/portfolio" class="a-green">
-            Portfolio
-          </a>
+        <a routerLink="/portfolio" class="a-green">Portfolio</a>
       </button>
     </div>
   </div>

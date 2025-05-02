@@ -22,34 +22,20 @@ test.describe('Home Component - Content Verification', () => {
     await homePage.navigateMain();
 
     // Verify the title is visible
-    const homeTitle = page.locator('.home-title');
-    await expect(homeTitle).toBeVisible();
-    await expect(homeTitle).toHaveText('Tested. Trusted. Delivered.');
+    await expect(homePage.homeTitle).toBeVisible();
+    await expect(homePage.homeTitle).toHaveText('Hello,');
 
     // Verify the author block is visible
-    const homeAuthor = page.locator('.home-author');
-    await expect(homeAuthor).toBeVisible();
-
-    // Verify the static author name is visible
-    const authorName = page.locator('.author-name');
-    await expect(authorName).toBeVisible();
-    await expect(authorName).toHaveText('Mykhail,');
+    await expect(homePage.homeSubtitle).toBeVisible();
+    await expect(homePage.homeSubtitle).toHaveText('My name is Mykhail');
 
     // Verify the dynamic text is visible
-    const dynamicText = page.locator('#dynamic-text');
-    await expect(dynamicText).toBeVisible();
-    await expect(dynamicText).not.toBeEmpty();
+    await expect(homePage.dynamicText).toBeVisible();
+    await expect(homePage.dynamicText).not.toBeEmpty();
 
-    // Verify the blockquote is visible
-    const blockquote = page.locator('blockquote');
-    await expect(blockquote).toBeVisible();
-    await expect(blockquote).toHaveText(
-      'I am a software test engineer with 2+ years of experience ensuring the quality and reliability of software products.'
-    );
 
     // Verify the Portfolio button is visible
-    const portfolioButton = page.locator('button >> a[routerLink="/portfolio"]');
-    await expect(portfolioButton).toBeVisible();
-    await expect(portfolioButton).toHaveText('Portfolio');
+    await expect(homePage.portfolioButton).toBeVisible();
+    await expect(homePage.portfolioButton).toHaveText('Portfolio');
   });
 });
