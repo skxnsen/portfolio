@@ -25,4 +25,5 @@
   * [Python](programming/python.md)
   * [TypeScript](programming/typescript.md)
   * [Java](programming/java.md)
+* [Observability](observability.md)
 * [Misc](misc.md)
