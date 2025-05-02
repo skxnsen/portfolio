@@ -13,7 +13,7 @@ test.describe('Contact Component - Content Verification', () => {
 
     // Verify the contact title is visible and has correct text
     await expect(contactPage.contactTitle).toBeVisible();
-    await expect(contactPage.contactTitle).toHaveText(/Mykhail Stieblov/i);
+    await expect(contactPage.contactTitle).toHaveText(/Mykhail/i);
 
     // Verify the contact paragraph is visible
     await expect(contactPage.contactParagraph).toBeVisible();

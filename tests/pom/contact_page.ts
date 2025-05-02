@@ -7,6 +7,7 @@ export class ContactPage {
   readonly contactParagraph: Locator;
   readonly linkedinButton: Locator;
   readonly mediaIcons: Locator;
+  readonly contactRole: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -15,6 +16,8 @@ export class ContactPage {
     this.contactParagraph = page.locator('.contact-paragraph'); // Contact paragraph
     this.linkedinButton = page.locator('button >> a[href*="linkedin.com"]'); // LinkedIn button
     this.mediaIcons = page.locator('.media-icons a'); // Social media icons
+    this.contactRole = page.locator('.default-highlight'); // Contact role
+
   }
 
   async navigateToContact() {
