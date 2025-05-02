@@ -1,116 +1,84 @@
-/* General layout */
-.text-left-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-}
-
-.text-left {
-    margin: 80px;
-    text-align: start;
-}
-
-/* Title */
-.home-title {
-    font-size: 4rem;
+/* Container alignment */
+.landing-header {
+    padding-top: 8rem;
+    padding-left: 2rem;
+  }
+  
+  /* Hello */
+  .home-title {
+    font-size: 5rem;
     color: #e0f0ff;
-    margin-bottom: 4rem;
-    line-height: 6rem;
-}
-
-/* Author block */
-.home-author {
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  /* My name is Mykhail */
+  .home-subtitle {
+    font-size: 4rem;
+    color: #b0caf0;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+  }
+  
+  /* Animated name */
+  .animated-name {
+    font-weight: bold;
+    background: linear-gradient(90deg, #32ff7e, #7efff5, #a6ffcb, #32ff7e);
+    background-size: 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: hue-shift 4s linear infinite;
+  }
+  
+  @keyframes hue-shift {
+    0% { background-position: 0% }
+    100% { background-position: 300% }
+  }
+  
+  /* I'm a ... */
+  .home-dynamic-line {
     font-size: 3.5rem;
-    color: #b0caf063;
+    color: #cde4ff;
     margin-bottom: 3rem;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    line-height: 4.5rem;
-    align-items: baseline;
-    word-break: break-word;
-}
-
-/* Static author name */
-.author-name {
-    white-space: nowrap;
-}
-
-/* Dynamic text */
-#dynamic-text {
+    line-height: 1.2;
+  }
+  
+  /* Dynamic text with caret */
+  #dynamic-text {
     display: inline-block;
     border-right: 2px solid #43aa85;
     padding-right: 5px;
     animation: blink-caret 0.7s step-end infinite;
     color: #43aa85;
-    max-width: 100%;
-    line-height: inherit;
-    word-break: break-word;
-}
-
-@keyframes blink-caret {
+  }
+  
+  @keyframes blink-caret {
     from, to { border-color: transparent; }
     50% { border-color: #43aa85; }
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
+  }
+  
+  /* Responsive styling */
+  @media (max-width: 768px) {
+    .landing-header {
+      padding-top: 4rem;
+      padding-left: 1rem;
+      text-align: center;
+    }
+  
     .home-title {
-        font-size: 3rem;
-        margin-bottom: 2rem;
-        line-height: 3.5rem;
+      font-size: 2.5rem;
     }
-
-    .home-author {
-        font-size: 2rem;
-        line-height: 3rem;
-        justify-content: center;
-        text-align: center;
+  
+    .home-subtitle {
+      font-size: 2rem;
     }
-
-    blockquote {
-        font-size: 1.2rem;
-        margin-bottom: 1rem;
+  
+    .home-dynamic-line {
+      font-size: 1.8rem;
     }
-
+  
     button a {
-        font-size: 1.2rem;
+      font-size: 1.2rem;
     }
-
-    .text-left {
-        margin: 20px;
-        text-align: center;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 991px) {
-    .home-title {
-        font-size: 3.5rem;
-        margin-bottom: 4rem;
-        line-height: 5rem;
-    }
-
-    .home-author {
-        font-size: 2.5rem;
-        line-height: 4rem;
-    }
-}
-
-@media (min-width: 992px) {
-    .home-title {
-        font-size: 4rem;
-    }
-
-    .home-author {
-        font-size: 3.5rem;
-    }
-
-    blockquote {
-        font-size: 1.7rem;
-    }
-
-    button a {
-        font-size: 1.5rem;
-    }
-}
+  }
+  

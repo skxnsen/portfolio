@@ -22,7 +22,7 @@ export class HomeComponent implements OnInit {
   phrases: string[] =[
     "Tech Enthusiast.",
     "Test Engineer.",
-    "Team Player.",
+    "Web Developer.",
   ];
 
   currentPhraseIndex: number = 0;
