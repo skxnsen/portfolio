@@ -5,6 +5,11 @@ on:
     - cron: '0 0 */3 * *'  # Runs every 3 days at midnight UTC
   workflow_dispatch:
 
+permissions:
+  contents: read
+  actions: read
+  artifact: write
+
 jobs:
   lighthouse_audit:
     runs-on: ubuntu-latest
