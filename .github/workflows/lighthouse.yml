@@ -8,15 +8,13 @@ on:
 jobs:
   lighthouse_audit:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: main  # Ensure we are on the actual main branch
+          ref: main  
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -27,19 +25,9 @@ jobs:
         run: npm install -g lighthouse
 
       - name: Create lighthouse reports directory
-        run: |
-          if [ ! -d "lighthouse" ]; then
-            echo "Creating lighthouse directory"
-            mkdir -p lighthouse
-            if [ $? -ne 0 ]; then
-              echo "Error creating lighthouse directory!"
-              exit 1
-            fi
-          else
-            echo "lighthouse directory already exists"
-          fi
+        run: mkdir -p lighthouse
 
-      - name: Run Lighthouse audit for skansen.netlify.app/
+      - name: Run Lighthouse audit for /
         run: |
           lighthouse https://skansen.netlify.app/ \
             --output=html \
@@ -48,7 +36,7 @@ jobs:
             --quiet \
             --no-enable-error-reporting
 
-      - name: Run Lighthouse audit for skansen.netlify.app/about
+      - name: Run Lighthouse audit for /about
         run: |
           lighthouse https://skansen.netlify.app/about \
             --output=html \
@@ -57,7 +45,7 @@ jobs:
             --quiet \
             --no-enable-error-reporting
 
-      - name: Run Lighthouse audit for skansen.netlify.app/skills
+      - name: Run Lighthouse audit for /skills
         run: |
           lighthouse https://skansen.netlify.app/skills \
             --output=html \
@@ -66,7 +54,7 @@ jobs:
             --quiet \
             --no-enable-error-reporting
 
-      - name: Run Lighthouse audit for skansen.netlify.app/portfolio
+      - name: Run Lighthouse audit for /portfolio
         run: |
           lighthouse https://skansen.netlify.app/portfolio \
             --output=html \
@@ -75,7 +63,7 @@ jobs:
             --quiet \
             --no-enable-error-reporting
 
-      - name: Run Lighthouse audit for skansen.netlify.app/contact
+      - name: Run Lighthouse audit for /contact
         run: |
           lighthouse https://skansen.netlify.app/contact \
             --output=html \
@@ -84,18 +72,9 @@ jobs:
             --quiet \
             --no-enable-error-reporting
 
-      - name: Commit and push Lighthouse reports
-        run: |
-          git config --global user.name "GitHub Actions Bot"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git checkout main
-          git add lighthouse/*.html
-          if git diff --staged --quiet; then
-            echo "Lighthouse reports: No changes to commit."
-          else
-            git pull --rebase origin main
-            git commit -m "chore: Update Lighthouse reports $(date +'%Y-%m-%d %H:%M:%S') [skip ci]"
-            git push origin main
-          fi
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Upload Lighthouse reports as artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-reports
+          path: lighthouse/*.html
+          retention-days: 7  # cleanup after 7 days
