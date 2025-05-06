@@ -20,6 +20,8 @@ on:
 jobs:
   test-prod:
     runs-on: ubuntu-latest
+    env:
+        BASE_URL: 'https://skansen.netlify.app' 
     strategy:
       matrix:
         workers: [4]
