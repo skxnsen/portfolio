@@ -92,6 +92,7 @@ jobs:
           if git diff --staged --quiet; then
             echo "Lighthouse reports: No changes to commit."
           else
+            git pull --rebase origin main
             git commit -m "chore: Update Lighthouse reports $(date +'%Y-%m-%d %H:%M:%S') [skip ci]"
             git push -v origin main
           fi
