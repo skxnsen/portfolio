@@ -5,10 +5,14 @@ on:
     branches: [main]
     paths-ignore:
       - 'gitbook/**'
+      - 'ci_reports/**'
+      - '.github/**'
   pull_request:
     branches: [main]
     paths-ignore:
       - 'gitbook/**'
+      - 'ci_reports/**'
+      - '.github/**'
 
 jobs:
   test-and-deploy:
