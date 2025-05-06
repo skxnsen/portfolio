@@ -2,7 +2,7 @@ name: Lighthouse Audit
 
 on:
   schedule:
-    - cron: '0 0 */3 * *'
+    - cron: '0 0 */3 * *'  # Runs every 3 days at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          persist-credentials: true
+          ref: main  # Ensure we are on the actual main branch
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -88,13 +88,14 @@ jobs:
         run: |
           git config --global user.name "GitHub Actions Bot"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout main
           git add lighthouse/*.html
           if git diff --staged --quiet; then
             echo "Lighthouse reports: No changes to commit."
           else
             git pull --rebase origin main
             git commit -m "chore: Update Lighthouse reports $(date +'%Y-%m-%d %H:%M:%S') [skip ci]"
-            git push -v origin main
+            git push origin main
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
