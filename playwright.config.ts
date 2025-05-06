@@ -18,7 +18,7 @@ export default defineConfig({
     // Command to run the local server only if no BASE_URL is provided
     command: 'npx serve -s ./dist/angular-portfolio-app/browser -l 4200',
     url: 'http://localhost:4200', // Default local URL
-    reuseExistingServer: !process.env.CI && !process.env.BASE_URL, // Avoid starting the server when BASE_URL is set
+    reuseExistingServer: !process.env.BASE_URL,
     timeout: 180 * 1000, // 3 minutes
     stdout: 'pipe',
     stderr: 'pipe',
