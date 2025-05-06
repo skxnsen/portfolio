@@ -10,12 +10,12 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:4200',  // handle CI env
+    baseURL: process.env.BASE_URL || 'http://localhost:4200',
     trace: 'on-first-retry',
   },
   webServer: {
     command: 'npx serve -s ./dist/angular-portfolio-app/browser -l 4200',
-    url: 'http://localhost:4200',
+    url: process.env.BASE_URL || 'http://localhost:4200',
     reuseExistingServer: !process.env.CI,
     timeout: 180 * 1000, // 3 minutes
     stdout: 'pipe',
