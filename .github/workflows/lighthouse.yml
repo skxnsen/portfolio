@@ -14,6 +14,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -24,7 +27,17 @@ jobs:
         run: npm install -g lighthouse
 
       - name: Create lighthouse reports directory
-        run: mkdir -p lighthouse
+        run: |
+          if [ ! -d "lighthouse" ]; then
+            echo "Creating lighthouse directory"
+            mkdir -p lighthouse
+            if [ $? -ne 0 ]; then
+              echo "Error creating lighthouse directory!"
+              exit 1
+            fi
+          else
+            echo "lighthouse directory already exists"
+          fi
 
       - name: Run Lighthouse audit for skansen.netlify.app/
         run: |
@@ -80,7 +93,7 @@ jobs:
             echo "Lighthouse reports: No changes to commit."
           else
             git commit -m "chore: Update Lighthouse reports $(date +'%Y-%m-%d %H:%M:%S') [skip ci]"
-            git push origin main
+            git push -v origin main
           fi
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
