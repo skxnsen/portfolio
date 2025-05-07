@@ -2,8 +2,11 @@
   <a href="https://app.netlify.com/sites/skansen/deploys">
     <img src="https://api.netlify.com/api/v1/badges/8cfb0876-28da-414f-93e6-9c66de1f0aed/deploy-status" alt="Netlify Status" />
   </a>
-  <a href="https://github.com/skxnsen/portfolio/actions/workflows/ci.yml">
-    <img src="https://github.com/skxnsen/portfolio/actions/workflows/ci.yml/badge.svg" alt="Playwright and Netlify Deployment" />
+    <a href="https://github.com/skxnsen/portfolio/actions/workflows/playwright_prod.yml">
+    <img src="https://github.com/skxnsen/portfolio/actions/workflows/playwright_prod.yml/badge.svg" alt="Playwright Prod Tests" />
+  </a>
+  <a href="https://github.com/skxnsen/portfolio/actions/workflows/netlify_playwright.yml">
+    <img src="https://github.com/skxnsen/portfolio/actions/workflows/netlify_playwright.yml/badge.svg" alt="Playwright and Netlify Deployment" />
   </a>
   <a href="https://github.com/skxnsen/portfolio/actions/workflows/osv-scanner.yml">
     <img src="https://github.com/skxnsen/portfolio/actions/workflows/osv-scanner.yml/badge.svg" alt="OSV-Scanner" />
