@@ -8,7 +8,7 @@ on:
 permissions:
   contents: read
   actions: read
-  artifact: write
+  id-token: write
 
 jobs:
   lighthouse_audit:
