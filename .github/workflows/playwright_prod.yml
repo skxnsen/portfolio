@@ -45,8 +45,7 @@ jobs:
 
       - name: Install Playwright
         run: |
-          npx playwright install chromium
-          npx playwright install-deps
+          npx playwright install --with-deps
 
       - name: Run Playwright tests against PROD
         run: npx playwright test --workers=4 tests
