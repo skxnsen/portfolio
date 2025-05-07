@@ -1,4 +1,5 @@
-name: CI Pipeline
+name: Netlify Deployment and Playwright Tests
+# This workflow runs Playwright tests and deploys to Netlify
 
 on:
   push:
@@ -13,6 +14,7 @@ on:
       - 'gitbook/**'
       - 'ci_reports/**'
       - '.github/**'
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
   test-and-deploy:
