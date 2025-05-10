@@ -11,6 +11,7 @@
     * [find command](readme-1/commands/find-command.md)
     * [tail command](readme-1/commands/tail-command.md)
     * [cp command](readme-1/commands/cp-command.md)
+    * [netstat command](readme-1/commands/netstat-command.md)
   * [File System](readme-1/file-system/README.md)
     * [Diff between symlink and hard link](readme-1/file-system/diff-between-symlink-and-hard-link.md)
 * [Git](git.md)
