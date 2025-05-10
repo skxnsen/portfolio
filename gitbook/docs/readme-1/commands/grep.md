@@ -291,7 +291,7 @@ ps aux | grep --color=always "ssh"
 
 ## grep Cheatsheet
 
-<figure><img src="../.gitbook/assets/WSwj1pE-L.png" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/WSwj1pE-L.png" alt=""><figcaption></figcaption></figure>
 
 ***
 

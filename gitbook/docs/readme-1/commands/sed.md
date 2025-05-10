@@ -128,4 +128,4 @@ For complex data manipulation, consider `awk` or `perl`.
 
 ## sed Cheatsheet
 
-<figure><img src="../.gitbook/assets/sed_cheatsheet.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/sed_cheatsheet.jpeg" alt=""><figcaption></figcaption></figure>

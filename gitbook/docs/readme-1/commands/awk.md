@@ -161,4 +161,4 @@ dmesg | grep "usb" | awk '{print $1, $3, $5}'
 
 ## awk Cheatsheet
 
-<figure><img src="../.gitbook/assets/awk_cheatsheet.jpeg" alt=""><figcaption></figcaption></figure>
+<figure><img src="../../.gitbook/assets/awk_cheatsheet.jpeg" alt=""><figcaption></figcaption></figure>
