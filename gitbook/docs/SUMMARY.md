@@ -9,6 +9,7 @@
   * [less command](readme-1/less-command.md)
   * [find command](readme-1/find-command.md)
   * [tail command](readme-1/tail-command.md)
+  * [cp command](readme-1/cp-command.md)
 * [Git](git.md)
 * [CI/CD](ci-cd/README.md)
   * [GitHub Actions](ci-cd/github-actions/README.md)
