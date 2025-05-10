@@ -1,5 +1,5 @@
 ---
-icon: terminal
+icon: rectangle-terminal
 ---
 
 # grep command

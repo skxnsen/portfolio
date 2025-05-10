@@ -5,6 +5,7 @@
   * [grep command](Linux/grep.md)
   * [sed command](Linux/sed.md)
   * [awk command](Linux/awk.md)
+  * [cat command](readme-1/cat-command.md)
 * [Git](git.md)
 * [CI/CD](ci-cd/README.md)
   * [GitHub Actions](ci-cd/github-actions/README.md)
