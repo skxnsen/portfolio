@@ -7,6 +7,7 @@
   * [awk command](Linux/awk.md)
   * [cat command](readme-1/cat-command.md)
   * [less command](readme-1/less-command.md)
+  * [find command](readme-1/find-command.md)
 * [Git](git.md)
 * [CI/CD](ci-cd/README.md)
   * [GitHub Actions](ci-cd/github-actions/README.md)
