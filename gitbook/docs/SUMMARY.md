@@ -12,6 +12,7 @@
     * [tail command](readme-1/commands/tail-command.md)
     * [cp command](readme-1/commands/cp-command.md)
     * [netstat command](readme-1/commands/netstat-command.md)
+    * [wc command](readme-1/commands/wc-command.md)
   * [File System](readme-1/file-system/README.md)
     * [Diff between symlink and hard link](readme-1/file-system/diff-between-symlink-and-hard-link.md)
 * [Git](git.md)
