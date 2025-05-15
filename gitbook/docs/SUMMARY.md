@@ -15,6 +15,8 @@
     * [wc](readme-1/commands/wc.md)
   * [File System](readme-1/file-system/README.md)
     * [Diff between symlink and hard link](readme-1/file-system/diff-between-symlink-and-hard-link.md)
+  * [Users & Groups](readme-1/users-and-groups/README.md)
+    * [chmod and File Permissions](readme-1/users-and-groups/chmod-and-file-permissions.md)
 * [Git](git.md)
 * [CI/CD](ci-cd/README.md)
   * [GitHub Actions](ci-cd/github-actions/README.md)
