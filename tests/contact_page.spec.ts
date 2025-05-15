@@ -34,10 +34,10 @@ test.describe('Contact Component - Content Verification', () => {
 
     // Verify all social media icons are visible
     const mediaIconLinks = await contactPage.getMediaIconLinks();
-    expect(mediaIconLinks).toContain('https://www.linkedin.com/in/skxnsen/');
-    expect(mediaIconLinks).toContain('https://github.com/skxnsen/');
+    expect(mediaIconLinks).toContain('https://www.linkedin.com/in/emkeyen/');
+    expect(mediaIconLinks).toContain('https://github.com/emkeyen/');
     expect(mediaIconLinks).toContain('mailto:emkeyen96@gmail.com');
-    expect(mediaIconLinks).toContain('https://t.me/skxnsen/');
+    expect(mediaIconLinks).toContain('https://t.me/emkeyen/');
   });
 });
 
@@ -57,7 +57,7 @@ test.describe('Contact Component - Navigation', () => {
       // Wait for the new page to load
       await newPage.waitForLoadState();
   
-      // Verify the new page URL contains LinkedIn and skxnsen
-      await expect(newPage).toHaveURL(/linkedin\.com.*skxnsen/);
+      // Verify the new page URL contains LinkedIn and emkeyen
+      await expect(newPage).toHaveURL(/linkedin\.com.*emkeyen/);
     });
   });

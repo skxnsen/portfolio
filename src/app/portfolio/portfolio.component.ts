@@ -48,54 +48,54 @@ export class PortfolioComponent {
       name: 'Angular Web SPA',
       summary: 'A single-page web application developed using Angular.',
       description: 'This portfolio is a dynamic and responsive web application built using the latest Angular 19, showcasing my personal skills and projects. The SPA is designed in an HTB-inspired style with gray and lime colors, featuring a responsive layout and shared components. The portfolio includes sections such as Home, About, Skills, Projects, and Contact. Key features include its responsive design across all viewports and a modern tech stack. The SPA is deployed on Netlify, and the codebase is available on GitHub. UI end-to-end tests are written in TypeScript using Playwright.',
-      projectLink: 'https://github.com/skxnsen/',
+      projectLink: 'https://github.com/skxnsen/portfolio',
       tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML5, Tag.CSS3, Tag.BOOTSTRAP],
-      pictures: ["../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png"]
+      pictures: ["../../assets/projects/portfolio/screen_1.png", "../../assets/projects/portfolio/screen_2.png", "../../assets/projects/portfolio/screen_3.png", "../../assets/projects/portfolio/screen_4.png",]
     },
     {
       id: 2,
-      name: 'Angular Web SPA',
-      summary: 'A single-page web application developed using Angular.',
-      description: 'This portfolio is a dynamic and responsive web application built using the latest Angular 19, showcasing my personal skills and projects. The SPA is designed in an HTB-inspired style with gray and lime colors, featuring a responsive layout and shared components. The portfolio includes sections such as Home, About, Skills, Projects, and Contact. Key features include its responsive design across all viewports and a modern tech stack. The SPA is deployed on Netlify, and the codebase is available on GitHub. UI end-to-end tests are written in TypeScript using Playwright.',
-      projectLink: 'https://github.com/skxnsen/',
+      name: 'Project Name TBD',
+      summary: 'Summary here. To be added later.',
+      description: 'Description here. To be added later.',
+      projectLink: 'https://github.com/emkeyen',
       tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML5, Tag.CSS3, Tag.BOOTSTRAP],
-      pictures: ["../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png"]
+      pictures: ["../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png"]
     },
     {
       id: 3,
-      name: 'Angular Web SPA',
-      summary: 'A single-page web application developed using Angular.',
-      description: 'This portfolio is a dynamic and responsive web application built using the latest Angular 19, showcasing my personal skills and projects. The SPA is designed in an HTB-inspired style with gray and lime colors, featuring a responsive layout and shared components. The portfolio includes sections such as Home, About, Skills, Projects, and Contact. Key features include its responsive design across all viewports and a modern tech stack. The SPA is deployed on Netlify, and the codebase is available on GitHub. UI end-to-end tests are written in TypeScript using Playwright.',
-      projectLink: 'https://github.com/skxnsen/',
+      name: 'Project Name TBD',
+      summary: 'Summary here. To be added later.',
+      description: 'Description here. To be added later.',
+      projectLink: 'https://github.com/emkeyen',
       tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML5, Tag.CSS3, Tag.BOOTSTRAP],
-      pictures: ["../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png"]
+      pictures: ["../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png"]
     },
     {
       id: 4,
-      name: 'Angular Web SPA',
-      summary: 'A single-page web application developed using Angular.',
-      description: 'This portfolio is a dynamic and responsive web application built using the latest Angular 19, showcasing my personal skills and projects. The SPA is designed in an HTB-inspired style with gray and lime colors, featuring a responsive layout and shared components. The portfolio includes sections such as Home, About, Skills, Projects, and Contact. Key features include its responsive design across all viewports and a modern tech stack. The SPA is deployed on Netlify, and the codebase is available on GitHub. UI end-to-end tests are written in TypeScript using Playwright.',
-      projectLink: 'https://github.com/skxnsen/',
+      name: 'Project Name TBD',
+      summary: 'Summary here. To be added later.',
+      description: 'Description here. To be added later.',
+      projectLink: 'https://github.com/emkeyen',
       tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML5, Tag.CSS3, Tag.BOOTSTRAP],
-      pictures: ["../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png"]
+      pictures: ["../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png"]
     },
     {
       id: 5,
-      name: 'Angular Web SPA',
-      summary: 'A single-page web application developed using Angular.',
-      description: 'This portfolio is a dynamic and responsive web application built using the latest Angular 19, showcasing my personal skills and projects. The SPA is designed in an HTB-inspired style with gray and lime colors, featuring a responsive layout and shared components. The portfolio includes sections such as Home, About, Skills, Projects, and Contact. Key features include its responsive design across all viewports and a modern tech stack. The SPA is deployed on Netlify, and the codebase is available on GitHub. UI end-to-end tests are written in TypeScript using Playwright.',
-      projectLink: 'https://github.com/skxnsen/',
+      name: 'Project Name TBD',
+      summary: 'Summary here. To be added later.',
+      description: 'Description here. To be added later.',
+      projectLink: 'https://github.com/emkeyen',
       tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML5, Tag.CSS3, Tag.BOOTSTRAP],
-      pictures: ["../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png"]
+      pictures: ["../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png"]
     },
     {
       id: 6,
-      name: 'Angular Web SPA',
-      summary: 'A single-page web application developed using Angular.',
-      description: 'This portfolio is a dynamic and responsive web application built using the latest Angular 19, showcasing my personal skills and projects. The SPA is designed in an HTB-inspired style with gray and lime colors, featuring a responsive layout and shared components. The portfolio includes sections such as Home, About, Skills, Projects, and Contact. Key features include its responsive design across all viewports and a modern tech stack. The SPA is deployed on Netlify, and the codebase is available on GitHub. UI end-to-end tests are written in TypeScript using Playwright.',
-      projectLink: 'https://github.com/skxnsen/',
+      name: 'Project Name TBD',
+      summary: 'Summary here. To be added later.',
+      description: 'Description here. To be added later.',
+      projectLink: 'https://github.com/emkeyen',
       tags: [Tag.ANGULAR, Tag.TYPESCRIPT, Tag.HTML5, Tag.CSS3, Tag.BOOTSTRAP],
-      pictures: ["../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png", "../../assets/projects/project1.png"]
+      pictures: ["../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png", "../../assets/projects/dark-placeholder.png"]
     },
 
   ]
